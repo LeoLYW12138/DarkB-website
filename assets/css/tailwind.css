@@ -1,5 +1,6 @@
 /* purgecss start ignore */
 @import 'tailwindcss/base';
+/* @apply text-size  */
 @import 'tailwindcss/components';
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';

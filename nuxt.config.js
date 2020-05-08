@@ -1,6 +1,12 @@
-
 module.exports = {
   mode: 'universal',
+  /*
+  ** Server host and port
+  */
+  server: {
+    port: 3000,
+    host: '192.168.1.123'
+  },
   /*
   ** Headers of the page
   */
@@ -23,6 +29,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/css/tailwind.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -43,8 +50,14 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'nuxt-purgecss'
   ],
+
+  // purgeCSS: {
+  //   mode: 'postcss',
+  //   enabled: (process.env.NODE_ENV === 'production')
+  // },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -59,6 +72,12 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    },
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: 'tailwind.config.js'
+      }
     }
   }
 }

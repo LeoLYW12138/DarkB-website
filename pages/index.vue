@@ -6,7 +6,7 @@
         DarkB
       </h1>
       <h2 class="subtitle">
-        A website named darkB
+        A website named DarkB
       </h2>
       <div class="links">
         <a
