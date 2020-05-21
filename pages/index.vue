@@ -1,20 +1,8 @@
 <template>
-  <div>
-    <navBar />
-  </div>
+  <div></div>
 </template>
 
-<script>
-// import Logo from '~/components/Logo.vue'
-import navBar from '~/components/navBar.vue'
 
-export default {
-  components: {
-    // Logo,
-    navBar
-  }
-}
-</script>
 
 <style>
 /* Sample `apply` at-rules with Tailwind CSS
@@ -23,7 +11,9 @@ export default {
 }
 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500&display=swap');
-
+body {
+  overflow-x: hidden;
+}
 /* .container {
   margin: 0 auto;
   min-height: 100vh;

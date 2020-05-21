@@ -11,7 +11,7 @@ module.exports = {
   purge: ['./src/**/*.html', './src/**/*.vue'],
   theme: {},
   variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'group-focus']
+    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover']
   },
   plugins: []
 }
