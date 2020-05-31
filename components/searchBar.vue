@@ -23,19 +23,20 @@
 
 <script>
 import searchFocus from '@/components/searchFocus.vue';
-  export default {
-    components: {
-      'search-focus': searchFocus,
-    },
-    methods: {
-      focusSearch(e) {
-        if (e.key === '/') {
-          this.$refs.search.focus();
-        }
+export default {
+  components: {
+    'search-focus': searchFocus,
+  },
+  methods: {
+    focusSearch(e) {
+      if (e.key === '/') {
+        this.$refs.search.focus();
       }
-    },
-  }
+    }
+  },
+}
 </script>
+
 
 <style scoped>
 </style>
