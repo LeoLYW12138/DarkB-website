@@ -1,122 +1,96 @@
 <template>
   <div>
-    <header class="navbar">
-      <div class="navItem-container">
-        <nuxt-link to="/">
-          <img src="~/assets/images/logo.png" alt="Home Page" />
-        </nuxt-link>
-        <nav-item class="navItem hidden lg:inline"></nav-item>
+    <!-- whole navBar start -->
+    <header class="navbar h-12 w-screen inline-flex flex-row justify-between items-center">
+      <!-- left box -->
+      <div class="inline-flex flex-row justify-between items-center">
+        <img src="~/assets/images/logo.png" alt="Home Page" />
+        <nav-item class="hidden lg:inline"></nav-item>
       </div>
+
+      <!-- middle box -->
       <search-bar></search-bar>
-      <ul class="right-menu-bar">
+
+      <!-- right box -->
+      <ul class="h-12 inline-flex flex-row justify-between items-center">
         <li>
           <a href="#">
-            <img src="~/assets/images/icons/settings.svg" alt="Settings" />
+            <img src="~assets/images/icons/settings.svg" alt="Settinges" />
           </a>
         </li>
-        <li>
-          <a href="#" class="change_theme" @click="isDarkThemed = !isDarkThemed">
-            <img
-              v-if="isDarkThemed"
-              src="~/assets/images/icons/moon.svg"
-              alt="Currently it is in dark theme"
-            />
-            <img
-              v-else
-              src="~/assets/images/icons/brightness.svg"
-              alt="Current it is in light theme"
-            />
+        <li @click="isDarkThemed = !isDarkThemed">
+          <a v-if="isDarkThemed" href="#">
+            <img src="~/assets/images/icons/moon.svg" alt="Currently it is in dark theme" />
+          </a>
+          <a v-else href="#">
+            <img src="~/assets/images/icons/brightness.svg" alt="Currently it is in light theme" />
           </a>
         </li>
+
+        <!-- login and signup -->
         <li class="hidden lg:inline">
-          <a id="login" href="#" class="text-md">Login or</a>
-          <a
-            id="signup"
-            href="#"
-            class="whitespace-no-wrap bg-green-600 hover:bg-green-400 px-3 rounded-full py-1"
-          >Sign Up</a>
+          <a href="#">Login</a>
+          <p class="inline px-1">or</p>
+          <a href="#" class="bg-green-600 hover:bg-green-400 px-3 py-1 rounded-full">Sign Up</a>
         </li>
-        <a href="#" class="px-2 sm:block lg:hidden" @click="openmenu = !openmenu">
-          <img src="~assets/images/icons/hamberger.svg" alt="Menu" />
+        <a href="#" class="px-2 block lg:hidden">
+          <img
+            src="~assets/images/icons/hamberger.svg"
+            alt="side menu"
+            @click="openmenu = !openmenu"
+          />
         </a>
       </ul>
     </header>
-    <div v-if="openmenu" class="side-menu-container lg:hidden">
-      <li>
-        <a
-          id="signup"
-          href="#"
-          class="whitespace-no-wrap bg-green-600 hover:bg-green-400 px-3 rounded-full py-1"
-        >Sign Up</a>
-        <p class="inline px-1">or</p>
-        <a id="login" href="#" class="text-md">Login</a>
-      </li>
+    <!-- whole navBar end -->
 
+    <!-- side-menu when sm and md screen -->
+    <div
+      v-if="openmenu"
+      class="side-menu-container lg:hidden absolute right-0 bg-gray-400 flex flex-col justify-evenly items-center"
+    >
+      <li>
+        <a href="#" class="bg-green-600 hover:bg-green-400 px-3 rounded-full py-1">Sign Up</a>
+        <p class="inline px-1">or</p>
+        <a href="#">Login</a>
+      </li>
       <nav-item class="navItem"></nav-item>
     </div>
   </div>
 </template>
 
 <script>
-import searchBar from '@/components/searchBar.vue'
 import navItem from '@/components/navItem.vue';
-export default {
-  components: {
-    'search-bar': searchBar,
-    'nav-item': navItem
-  },
-  data () {
-    return {
-      isDarkThemed: false,
-      openmenu: false,
+import searchBar from '@/components/searchBar.vue';
+    export default {
+      components: {
+        'nav-item': navItem,
+        'search-bar': searchBar
+      },
+      data() {
+        return {
+          openmenu: false,
+          isDarkThemed: false
+        }
+      },
     }
-  },
-}
 </script>
 
 <style>
 * {
-  font-family: 'Noto Sans HK', serif;
-  font-size: 20px;
+  font-family: 'Noto Sans HK', Roboto, Arial, serif;
+  font-size: 16px;
   font-weight: 500;
-}
-header {
-  width: 100vw;
 }
 
 .navbar {
-  display: inline-flex;
-  position: sticky;
-  width: 100%;
-  height: 3rem;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid darkgrey;
   box-shadow: 2px 3px rgba(105, 105, 105, 0.01);
 }
-.right-menu-bar {
-  display: inline-flex;
-  height: 3rem;
-  justify-content: right;
-  align-items: center;
-}
-.navItem-container {
-  display: inline-flex;
-  height: 3rem;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .side-menu-container {
-  position: absolute;
-  z-index: 100;
-  right: 0;
   width: 100vw;
   height: calc(100vh - 3rem);
-  align-items: center;
-  @apply bg-gray-400;
-  @apply flex flex-col justify-evenly;
 }
 
 li {
@@ -124,12 +98,6 @@ li {
   list-style-type: none;
 }
 
-a:hover {
-  @apply text-purple-400;
-}
-svg {
-  display: inline;
-}
 img {
   border-radius: 100%;
   max-width: 32px;

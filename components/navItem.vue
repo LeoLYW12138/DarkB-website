@@ -1,22 +1,21 @@
 <template>
   <div>
-    <ul class="flex flex-col flex-grow lg:flex-row justify-around align-center">
-      <li>
-        <nuxt-link to="/about">About</nuxt-link>
-      </li>
-      <li>
-        <a href="#">Blog</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
-      </li>
-    </ul>
+    <nav class="flex flex-col lg:flex-row flex-grow justify-around items-center">
+      <a href="#">About</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </nav>
   </div>
 </template>
 
-<style>
-li {
-  /* display: inline; */
+<script>
+    export default {
+        
+    }
+</script>
+
+<style scoped>
+a {
   @apply mx-2;
 }
 </style>

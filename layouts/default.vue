@@ -7,7 +7,6 @@
 
 <script>
 import navBar from '@/components/navBar.vue';
-
 export default {
   components: {
     'nav-bar': navBar,
@@ -18,7 +17,7 @@ export default {
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
+  /* font-size: 16px; */
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

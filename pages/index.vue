@@ -10,7 +10,7 @@
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap');
 body {
   overflow-x: hidden;
 }
