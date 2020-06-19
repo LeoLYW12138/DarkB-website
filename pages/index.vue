@@ -1,47 +1,59 @@
 <template>
-  <div></div>
+  <div class="m-4 border-red-500 border">
+    <!-- hero -->
+    <section class="mx-auto flex flex-row flex-wrap items-center">
+      <div class="inline-block">
+        <div class="relative">
+          <h1 class="watermark pl-4 absolute text-opacity-25 text-gray-400">DarkB</h1>
+          <h3>Hello, World!</h3>
+          <h1 class="ml-8">I am DarkB</h1>
+          <h2>An IT enthusiast</h2>
+        </div>
+        <a href="#" class="btn btn-lightGreen">About me</a>
+        <a href="#" class="btn btn-lightGreen">Contact me</a>
+      </div>
+      <div class="border border-black w-auto">
+        <img src alt />
+        Image here
+      </div>
+    </section>
+  </div>
 </template>
 
+<script>
 
+</script>
 
 <style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+html {
+  font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
 }
-*/
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@500&display=swap');
-body {
-  overflow-x: hidden;
+h1 {
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 7vw; /*96px*/
 }
-/* .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
+h2 {
+  font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
   font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+  font-size: 4vw; /*64px*/
+}
+h3 {
+  font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 3vw; /*48px*/
+}
+.watermark {
+  font-size: 9vw; /*288px*/
+  bottom: 2rem;
+  left: 2rem;
+  z-index: -99;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.btn-lightGreen {
+  background-color: #b0fe76;
 }
-
-.links {
-  padding-top: 15px;
-} */
+.btn-lightGreen:hover {
+  background-color: #81e979;
+}
 </style>

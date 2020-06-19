@@ -9,10 +9,15 @@
       </div>
 
       <!-- middle box -->
-      <search-bar></search-bar>
+      <search-bar :is-open="openSearchBar"></search-bar>
 
       <!-- right box -->
       <ul class="h-12 inline-flex flex-row justify-between items-center">
+        <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
+          <a href="#">
+            <img src="~assets/images/icons/search.svg" alt="Search" />
+          </a>
+        </li>
         <li>
           <a href="#">
             <img src="~assets/images/icons/settings.svg" alt="Settinges" />
@@ -31,7 +36,7 @@
         <li class="hidden lg:inline">
           <a href="#">Login</a>
           <p class="inline px-1">or</p>
-          <a href="#" class="bg-green-600 hover:bg-green-400 px-3 py-1 rounded-full">Sign Up</a>
+          <a href="#" class="btn btn-darkGreen">Sign Up</a>
         </li>
         <a href="#" class="px-2 block lg:hidden">
           <img
@@ -70,7 +75,8 @@ import searchBar from '@/components/searchBar.vue';
       data() {
         return {
           openmenu: false,
-          isDarkThemed: false
+          isDarkThemed: false,
+          openSearchBar: false
         }
       },
     }
@@ -91,6 +97,17 @@ import searchBar from '@/components/searchBar.vue';
 .side-menu-container {
   width: 100vw;
   height: calc(100vh - 3rem);
+}
+
+.btn {
+  @apply px-3 py-1 rounded-full;
+}
+
+.btn-darkGreen {
+  @apply bg-green-600;
+}
+.btn-darkGreen:hover {
+  @apply bg-green-400;
 }
 
 li {
