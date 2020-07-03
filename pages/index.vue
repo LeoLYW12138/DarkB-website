@@ -1,22 +1,35 @@
 <template>
-  <div class="m-4 border-red-500 border">
+  <div class="m-4 lg:m-8">
     <!-- hero -->
-    <section class="mx-auto flex flex-row flex-wrap items-center">
-      <div class="inline-block">
-        <div class="relative">
-          <h1 class="watermark pl-4 absolute text-opacity-25 text-gray-400">DarkB</h1>
+    <section class="w-full flex flex-col xl:flex-row flex-wrap items-center justify-between">
+      <div class="inline-block mb-12 xl:mb-0">
+        <div class="hero relative">
+          <h1 class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400">DarkB</h1>
           <h3>Hello, World!</h3>
           <h1 class="ml-8">I am DarkB</h1>
           <h2>An IT enthusiast</h2>
         </div>
-        <a href="#" class="btn btn-lightGreen">About me</a>
-        <a href="#" class="btn btn-lightGreen">Contact me</a>
+        <div class="px-auto m-2 flex flex-row justify-around">
+          <a href="#" class="btn btn-lightGreen text-lg md:text-2xl">About me</a>
+          <a href="#" class="btn btn-lightGreen text-lg md:text-2xl">Contact me</a>
+        </div>
       </div>
-      <div class="border border-black w-auto">
-        <img src alt />
-        Image here
+      <div class="border border-black">
+        <img src="https://via.placeholder.com/630x354.png?text=Image+Here" alt="Hero image" />
       </div>
     </section>
+    <!-- hero end -->
+    <div class="mt-4 h-16">
+      <img
+        id="see-more"
+        class="mx-auto relative"
+        width="48"
+        height="48"
+        src="~assets/images/icons/expand_more.svg"
+        alt="Scroll Down to See More!"
+        title="Scroll Down to see More"
+      />
+    </div>
   </div>
 </template>
 
@@ -28,26 +41,52 @@
 html {
   font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
 }
-h1 {
-  font-family: inherit;
-  font-weight: 900;
-  font-size: 7vw; /*96px*/
+.hero h1 {
+  font-weight: 900; /*black*/
+  font-size: 3.8rem;
 }
-h2 {
-  font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
+.hero h2 {
   font-weight: 300;
-  font-size: 4vw; /*64px*/
+  font-size: 3rem;
 }
-h3 {
-  font-family: 'Noto Sans HK', Roboto, Arial, Helvetica, sans-serif;
+.hero h3 {
   font-weight: 500;
-  font-size: 3vw; /*48px*/
+  font-size: 2rem;
 }
-.watermark {
-  font-size: 9vw; /*288px*/
-  bottom: 2rem;
-  left: 2rem;
+h1.watermark {
+  font-size: 8rem;
+  bottom: 1rem;
   z-index: -99;
+}
+
+@screen md {
+  .hero h1 {
+    font-size: 5rem;
+  }
+  .hero h2 {
+    font-size: 4rem;
+  }
+  .hero h3 {
+    font-size: 2.5rem;
+  }
+  h1.watermark {
+    font-size: 10rem;
+  }
+}
+
+@screen lg {
+  .hero h1 {
+    font-size: 6rem;
+  }
+  .hero h2 {
+    font-size: 4rem;
+  }
+  .hero h3 {
+    font-size: 3rem;
+  }
+  h1.watermark {
+    font-size: 11rem;
+  }
 }
 
 .btn-lightGreen {
@@ -55,5 +94,21 @@ h3 {
 }
 .btn-lightGreen:hover {
   background-color: #81e979;
+}
+@keyframes UpandDown {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 3rem;
+  }
+  100% {
+    top: 0;
+  }
+}
+#see-more {
+  animation-name: UpandDown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
 </style>

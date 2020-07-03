@@ -4,7 +4,7 @@
     <header class="navbar h-12 w-screen inline-flex flex-row justify-between items-center">
       <!-- left box -->
       <div class="inline-flex flex-row justify-between items-center">
-        <img src="~/assets/images/logo.png" alt="Home Page" />
+        <img id="logo" src="~/assets/images/logo.png" alt="Home Page" />
         <nav-item class="hidden lg:inline"></nav-item>
       </div>
 
@@ -15,20 +15,32 @@
       <ul class="h-12 inline-flex flex-row justify-between items-center">
         <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
           <a href="#">
-            <img src="~assets/images/icons/search.svg" alt="Search" />
+            <img
+              src="~assets/images/icons/search.svg"
+              alt="Open Search Bar"
+              title="Open Search Bar"
+            />
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="~assets/images/icons/settings.svg" alt="Settinges" />
+            <img src="~assets/images/icons/settings.svg" alt="Settings" title="Settings" />
           </a>
         </li>
         <li @click="isDarkThemed = !isDarkThemed">
           <a v-if="isDarkThemed" href="#">
-            <img src="~/assets/images/icons/moon.svg" alt="Currently it is in dark theme" />
+            <img
+              src="~/assets/images/icons/moon-light.svg"
+              alt="Currently it is in dark theme"
+              title="Currently it is in dark theme"
+            />
           </a>
           <a v-else href="#">
-            <img src="~/assets/images/icons/brightness.svg" alt="Currently it is in light theme" />
+            <img
+              src="~/assets/images/icons/brightness.svg"
+              alt="Currently it is in light theme"
+              title="Currently it is in light theme"
+            />
           </a>
         </li>
 
@@ -42,6 +54,7 @@
           <img
             src="~assets/images/icons/hamberger.svg"
             alt="side menu"
+            title="open side menu"
             @click="openmenu = !openmenu"
           />
         </a>
@@ -50,7 +63,7 @@
     <!-- whole navBar end -->
 
     <!-- side-menu when sm and md screen -->
-    <div
+    <aside
       v-if="openmenu"
       class="side-menu-container lg:hidden absolute right-0 bg-gray-400 flex flex-col justify-evenly items-center"
     >
@@ -60,7 +73,7 @@
         <a href="#">Login</a>
       </li>
       <nav-item class="navItem"></nav-item>
-    </div>
+    </aside>
   </div>
 </template>
 
@@ -97,10 +110,11 @@ import searchBar from '@/components/searchBar.vue';
 .side-menu-container {
   width: 100vw;
   height: calc(100vh - 3rem);
+  z-index: 100;
 }
 
 .btn {
-  @apply px-3 py-1 rounded-full;
+  @apply px-3 py-1 rounded-full shadow;
 }
 
 .btn-darkGreen {
@@ -115,7 +129,7 @@ li {
   list-style-type: none;
 }
 
-img {
+#logo {
   border-radius: 100%;
   max-width: 32px;
   margin-left: 5px;
