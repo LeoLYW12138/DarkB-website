@@ -4,7 +4,9 @@
     <header class="navbar h-12 w-screen inline-flex flex-row justify-between items-center">
       <!-- left box -->
       <div class="inline-flex flex-row justify-between items-center">
-        <img id="logo" src="~/assets/images/logo.png" alt="Home Page" />
+        <nuxt-link to="/">
+          <img id="logo" src="~/assets/images/logo.png" alt="Home Page" title="Home Page" />
+        </nuxt-link>
         <nav-item class="hidden lg:inline"></nav-item>
       </div>
 
@@ -14,50 +16,43 @@
       <!-- right box -->
       <ul class="h-12 inline-flex flex-row justify-between items-center">
         <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
-          <a href="#">
-            <img
-              src="~assets/images/icons/search.svg"
-              alt="Open Search Bar"
-              title="Open Search Bar"
-            />
-          </a>
+          <div class="clickable">
+            <svg height="24px" width="24px" class="icon">
+              <use href="~assets/images/icons/search.svg#search" />
+            </svg>
+          </div>
         </li>
         <li>
-          <a href="#">
-            <img src="~assets/images/icons/settings.svg" alt="Settings" title="Settings" />
-          </a>
+          <div class="clickable">
+            <svg height="24px" width="24px" class="icon">
+              <use href="~assets/images/icons/settings.svg#settings" />
+            </svg>
+          </div>
         </li>
         <li @click="isDarkThemed = !isDarkThemed">
-          <a v-if="isDarkThemed" href="#">
-            <img
-              src="~/assets/images/icons/moon-light.svg"
-              alt="Currently it is in dark theme"
-              title="Currently it is in dark theme"
-            />
-          </a>
-          <a v-else href="#">
-            <img
-              src="~/assets/images/icons/brightness.svg"
-              alt="Currently it is in light theme"
-              title="Currently it is in light theme"
-            />
-          </a>
+          <div v-if="isDarkThemed" class="clickable">
+            <svg height="24px" width="24px" class="icon">
+              <use href="~assets/images/icons/moon-light.svg#dark" />
+            </svg>
+          </div>
+          <div v-else class="clickable">
+            <svg height="24px" width="24px" class="icon">
+              <use href="~assets/images/icons/brightness.svg#light" />
+            </svg>
+          </div>
         </li>
 
         <!-- login and signup -->
-        <li class="hidden lg:inline">
+        <li class="hidden lg:inline lg:mr-6">
           <a href="#">Login</a>
           <p class="inline px-1">or</p>
           <a href="#" class="btn btn-darkGreen">Sign Up</a>
         </li>
-        <a href="#" class="px-2 block lg:hidden">
-          <img
-            src="~assets/images/icons/hamberger.svg"
-            alt="side menu"
-            title="open side menu"
-            @click="openmenu = !openmenu"
-          />
-        </a>
+        <div class="px-2 block lg:hidden">
+          <svg height="24px" width="24px" class="icon clickable" @click="openmenu = !openmenu">
+            <use href="~assets/images/icons/hamberger.svg#hamberger" />
+          </svg>
+        </div>
       </ul>
     </header>
     <!-- whole navBar end -->
@@ -68,7 +63,7 @@
       class="side-menu-container lg:hidden absolute right-0 bg-gray-400 flex flex-col justify-evenly items-center"
     >
       <li>
-        <a href="#" class="bg-green-600 hover:bg-green-400 px-3 rounded-full py-1">Sign Up</a>
+        <a href="#" class="btn btn-darkGreen">Sign Up</a>
         <p class="inline px-1">or</p>
         <a href="#">Login</a>
       </li>
@@ -112,7 +107,6 @@ import searchBar from '@/components/searchBar.vue';
   height: calc(100vh - 3rem);
   z-index: 100;
 }
-
 .btn {
   @apply px-3 py-1 rounded-full shadow;
 }
@@ -129,9 +123,21 @@ li {
   list-style-type: none;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 #logo {
   border-radius: 100%;
   max-width: 32px;
   margin-left: 5px;
+}
+
+.icon {
+  @apply transition ease-in-out duration-300;
+}
+
+.icon:hover {
+  @apply transform scale-110;
 }
 </style>
