@@ -6,12 +6,12 @@
         <div v-for="article in trendArticles" :key="article.id" class="p-4 w-full lg:w-1/3">
           <div class="h-full posters-bg px-8 pt-12 pb-40 rounded-lg text-center relative shadow-md">
             <h2
-              class="tracking-widest text-base font-medium uppercase text-gray-700 mb-1"
+              class="tracking-widest text-base font-medium uppercase text-gray-700"
             >{{article.cat}}</h2>
             <h1
-              class="sm:text-3xl text-2xl font-medium text-gray-900 mb-3 capitalize"
+              class="text-2xl md:text-3xl font-medium text-gray-900 mb-3 capitalize"
             >{{article.title}}</h1>
-            <p class="leading-relaxed text-gray-700 mb-8">{{article.less}}...</p>
+            <p class="leading-relaxed text-gray-700 mb-8">{{article.less}}</p>
             <div class="absolute text-center bottom-0 left-0 w-full mb-16">
               <nuxt-link to="/" class="text-indigo-700 inline-flex items-center">
                 Learn More
@@ -31,7 +31,7 @@
                 </svg>
                 {{article.view}}
               </span>
-              <span class="text-gray-600 inline-flex items-center leading-none text-sm">
+              <span class="text-gray-600 mr-3 inline-flex items-center leading-none text-sm">
                 <svg height="18px" width="18px" class="mt-1 mr-1">
                   <use href="~assets/images/icons/comment.svg#comment" />
                 </svg>

@@ -46,7 +46,7 @@
         <li class="hidden lg:inline lg:mr-6">
           <a href="#">Login</a>
           <p class="inline px-1">or</p>
-          <a href="#" class="btn btn-darkGreen">Sign Up</a>
+          <a href="#" class="px-3 py-1 rounded-full shadow btn-darkGreen">Sign Up</a>
         </li>
         <div class="px-2 block lg:hidden">
           <svg height="24px" width="24px" class="icon clickable" @click="openmenu = !openmenu">
@@ -107,15 +107,17 @@ import searchBar from '@/components/searchBar.vue';
   height: calc(100vh - 3rem);
   z-index: 100;
 }
+
 .btn {
-  @apply px-3 py-1 rounded-full shadow;
+  @apply px-8 py-2 shadow font-semibold;
+  border-radius: 1rem;
 }
 
 .btn-darkGreen {
-  @apply bg-green-600;
+  @apply bg-green-400;
 }
 .btn-darkGreen:hover {
-  @apply bg-green-400;
+  @apply bg-green-500;
 }
 
 li {

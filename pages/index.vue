@@ -1,8 +1,9 @@
 <template>
-  <div class="m-4 lg:m-8">
+  <div class="m-4 lg:m-8 text-gray-900">
     <!-- hero -->
     <hero />
-    <!-- hero end -->
+
+    <!-- scroll down animation -->
     <div class="h-auto my-12">
       <div class="text-center text-lg md:text-2xl">Scroll Down to See More</div>
       <img
@@ -16,18 +17,37 @@
       />
     </div>
 
+    <!-- recommended posts -->
     <blog-posters></blog-posters>
+
+    <!-- latest videos -->
+    <latest-video :video-ids="videoIds"></latest-video>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import hero from '@/components/hero.vue';
 import blogPosters from '@/components/blog-posters.vue';
+import latestVideo from '@/components/latestVideo.vue'
 
 export default {
   components: {
     hero,
-    "blog-posters": blogPosters
+    "blog-posters": blogPosters,
+    "latest-video": latestVideo
+  },
+  async asyncData(context) {
+    const API_URL = "https://www.googleapis.com/youtube/v3/search"
+    const data = await axios
+    .get(API_URL + "?key=AIzaSyBW0gJOgzwxKPDGsoQ17KHQM9y1gnjI3-8&channelId=UClBq509EYyeMgN2wddN5v6g&order=date")
+    .then((res) => {
+      return res.data.items.slice(0, 2); // Take the first two elements
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+    return {videoIds: {'pre': data[1].id.videoId, 'new': data[0].id.videoId}} // Get the two videoIds from the data
   },
 };
 

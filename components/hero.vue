@@ -5,12 +5,12 @@
         <div class="hero relative">
           <h1 class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400">DarkB</h1>
           <h3>Hello, World!</h3>
-          <h1 class="ml-8">I am DarkB</h1>
+          <h1 class="ml-8 text-black">I am DarkB</h1>
           <h2>An IT enthusiast</h2>
         </div>
         <div class="px-auto m-2 flex flex-row justify-around">
-          <a href="#" class="btn btn-lightGreen text-lg md:text-2xl">About me</a>
-          <a href="#" class="btn btn-lightGreen text-lg md:text-2xl">Contact me</a>
+          <a href="#" class="btn btn-lightGreen text-base md:text-lg">About me</a>
+          <a href="#" class="btn btn-lightGreen text-base md:text-lg">Contact me</a>
         </div>
       </div>
       <div class="border border-black">
