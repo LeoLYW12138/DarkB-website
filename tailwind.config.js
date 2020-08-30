@@ -9,7 +9,16 @@ module.exports = {
   important: false,
   separator: ':',
   purge: ['./src/**/*.html', './src/**/*.vue'],
-  theme: {},
+  theme: {
+    borderRadius: {
+      none: '0',
+      default: '0.25rem',
+      md: '0.5rem',
+      lg: '1rem',
+      xl: '1.2rem',
+      full: '9999px'
+    }
+  },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'group-hover']
   },

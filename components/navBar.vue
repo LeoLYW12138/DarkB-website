@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white shadow-md">
     <!-- whole navBar start -->
     <header class="navbar h-12 w-screen inline-flex flex-row justify-between items-center">
       <!-- left box -->
@@ -98,7 +98,6 @@ import searchBar from '@/components/searchBar.vue';
 }
 
 .navbar {
-  border-bottom: 1px solid darkgrey;
   box-shadow: 2px 3px rgba(105, 105, 105, 0.01);
 }
 

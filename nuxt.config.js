@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   mode: 'universal',
   /*
    ** Server host and port
@@ -6,6 +6,18 @@ module.exports = {
   server: {
     port: 3000,
     host: '192.168.1.123'
+  },
+  /*
+   ** env var can be accessd in both server and client
+   */
+  // publicRuntimeConfig: {
+
+  // },
+  /*
+   ** env var can be accessd in server only
+   */
+  privateRuntimeConfig: {
+    apiKey: process.env.API_KEY
   },
   /*
    ** Headers of the page
@@ -38,7 +50,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#34eb4f' },
   /*
    ** Global CSS
    */

@@ -1,10 +1,7 @@
 <template>
   <section class="container mx-auto w-full">
-    <h1 class="text-4xl lg:text-6xl mb-16">Check Out My Latest Video!</h1>
-    <div
-      v-if="videoIds"
-      class="mb-4 flex flex-wrap flex-col lg:flex-row items-center justify-between"
-    >
+    <h1 class="text-4xl lg:text-6xl mb-16">Check Out My Latest Video</h1>
+    <div class="mb-4 flex flex-wrap flex-col lg:flex-row items-center justify-between">
       <div class="sm-video-player">
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">Previous Video</h3>
         <div
@@ -49,7 +46,6 @@
               :video-id="videoIds['new']"
               allow="encrypted-media; gyroscope; picture-in-picture"
               nocookie
-              @playing="playing"
             ></youtube>
           </client-only>
         </div>
@@ -57,7 +53,7 @@
     </div>
     <div class="inline-flex w-full justify-center">
       <a
-        href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?disable_polymer=true"
+        href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?view_as=subscriber"
         class="btn play-button text-white tracking-wide inline-flex items-center"
         rel="noopener"
         target="_blank"
@@ -81,26 +77,9 @@
     },
     data() {
       return {
-        // videoIds: {'pre': "ZanubNpTzeU", 'new': "cccbTNKKVxk"},
+        // videoIds: {'pre': "ZanubNpTzeU", 'new': "cccbTNKKVxk"}
       }
     },
-    computed: {
-      prePlayer() {
-        return this.$refs.preVdo.player 
-      },
-      bornPlayer() {
-        return this.$refs.newVdo.player
-      }
-    },
-    methods: {
-      playVideo() {
-        this.player.playVideo()
-      },
-      playing() {
-        console.log('We are playing the video')
-      }
-    },
-    
   }
 </script>
 
@@ -109,10 +88,9 @@
   background-color: red;
   padding-right: 1.4rem !important;
 }
-.play-button:hover {
+.player-button:hover {
   background-color: rgb(230, 25, 25);
 }
-
 .sm-video-player {
   width: 80%;
   height: auto;

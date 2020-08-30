@@ -13,8 +13,9 @@
           <a href="#" class="btn btn-lightGreen text-base md:text-lg">Contact me</a>
         </div>
       </div>
-      <div class="border border-black">
-        <img src="https://via.placeholder.com/630x354.png?text=Image+Here" alt="Hero Image" />
+      <div class="blur-edge">
+        <!-- <img src="https://via.placeholder.com/630x354.png?text=Image+Here" alt="Hero Image" /> -->
+        <!-- <img class="hidden" src="~assets/images/computer-hero.jpg" alt="Hero image" /> -->
       </div>
     </div>
   </section>
@@ -27,6 +28,12 @@
 </script>
 
 <style scoped>
+.blur-edge {
+  background-image: url('~assets/images/computer-hero.jpg');
+  width: 640px;
+  height: 426px;
+  box-shadow: 0 0 8px 8px whitesmoke inset;
+}
 h1 {
   font-weight: 900; /*black*/
   font-size: 3.3rem;
