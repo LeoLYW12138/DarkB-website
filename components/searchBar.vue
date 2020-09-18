@@ -8,11 +8,7 @@
       <div class="flex flex-grow">
         <div class="relative mx-auto">
           <div class="absolute inset-y-0 left-0 pl-2 pt-1 flex items-center">
-            <img
-              class="fill-current text-gray-500"
-              src="~/assets/images/icons/search.svg"
-              alt="Search"
-            />
+            <img class="fill-current text-gray-500" src="~/assets/icons/search.svg" alt="Search" />
           </div>
           <input
             ref="search"

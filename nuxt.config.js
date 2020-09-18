@@ -43,7 +43,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500;900&display=swap'
+          'https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;500;900&family=Fugaz+One&display=swap'
       }
     ]
   },

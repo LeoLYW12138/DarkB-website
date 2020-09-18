@@ -18,26 +18,26 @@
         <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/images/icons/search.svg#search" />
+              <use href="~assets/icons/search.svg#search" />
             </svg>
           </div>
         </li>
         <li>
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/images/icons/settings.svg#settings" />
+              <use href="~assets/icons/settings.svg#settings" />
             </svg>
           </div>
         </li>
         <li @click="isDarkThemed = !isDarkThemed">
           <div v-if="isDarkThemed" class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/images/icons/moon-light.svg#dark" />
+              <use href="~assets/icons/moon-light.svg#dark" />
             </svg>
           </div>
           <div v-else class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/images/icons/brightness.svg#light" />
+              <use href="~assets/icons/brightness.svg#light" />
             </svg>
           </div>
         </li>
@@ -50,7 +50,7 @@
         </li>
         <div class="px-2 block lg:hidden">
           <svg height="24px" width="24px" class="icon clickable" @click="openmenu = !openmenu">
-            <use href="~assets/images/icons/hamberger.svg#hamberger" />
+            <use href="~assets/icons/hamberger.svg#hamberger" />
           </svg>
         </div>
       </ul>

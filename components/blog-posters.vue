@@ -16,7 +16,7 @@
               <nuxt-link to="/" class="text-indigo-700 inline-flex items-center">
                 Learn More
                 <svg width="18px" height="18px" class="ml-2">
-                  <use href="~assets/images/icons/arrow_right.svg#arrowR" />
+                  <use href="~assets/icons/arrow_right.svg#arrowR" />
                 </svg>
               </nuxt-link>
             </div>
@@ -27,13 +27,13 @@
                 class="text-gray-600 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-500"
               >
                 <svg height="18px" width="18px" class="mt-1 mr-1">
-                  <use href="~assets/images/icons/eye.svg#eye" />
+                  <use href="~assets/icons/eye.svg#eye" />
                 </svg>
                 {{article.view}}
               </span>
               <span class="text-gray-600 mr-3 inline-flex items-center leading-none text-sm">
                 <svg height="18px" width="18px" class="mt-1 mr-1">
-                  <use href="~assets/images/icons/comment.svg#comment" />
+                  <use href="~assets/icons/comment.svg#comment" />
                 </svg>
                 {{article.cmCount}}
               </span>

@@ -12,7 +12,7 @@
           class="mx-auto relative"
           width="48px"
           height="48px"
-          src="~assets/images/icons/expand_more.svg"
+          src="~assets/icons/expand_more.svg"
           alt="Scroll Down to See More!"
           title="Scroll Down to See More!"
         />

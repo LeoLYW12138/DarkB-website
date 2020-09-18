@@ -37,6 +37,10 @@ html {
   margin: 0;
 }
 
+.fugaz {
+  font-family: 'Fugaz One', 'Noto Sans HK', Roboto, sans-serif;
+}
+
 .button--green {
   display: inline-block;
   border-radius: 4px;

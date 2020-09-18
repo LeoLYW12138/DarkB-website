@@ -1,13 +1,43 @@
 <template>
-  <div class="mx-2">
-    <h1 class="font-bold text-xl text-green-700 hover:text-red-400">
-      About me
-    </h1>
-    <p>Hello guys, I am Leo. Thanks for making it here to browse my site</p>
-    <p>It is my first time making a full stack website (actually quite challenging to me)</p>
-    <p>Hope you guys enjoy and I will constantly update the website if I got a new idea</p>
-    <p>You can always comment down below to give opinion to my website.</p>
-    <p>Welcome to any new ideas ^.^</p>
+  <div class="my-4 lg:my-8 px-2 lg:px-4">
+    <div class="container">
+      <h4 class="text-4xl mt-16 font-bold">Something about me...</h4>
+      <div class="my-12">
+        <h6 class="text-2xl font-semibold">Who am I ?</h6>
+        <div class="pl-5 lg:pl-10 my-6 leading-9">
+          <p>Hello, welcome to my site! This is DarkB</p>
+          <p>Well, currently I am a University student in Hong Kong</p>
+        </div>
+      </div>
+      <div class="my-12">
+        <h6 class="text-2xl font-semibold">Why this site ever exists ?</h6>
+        <div class="pl-5 lg:pl-10 my-6 leading-9">
+          <p>
+            One day, i came across a Youtube video titled
+            <span
+              class="text-xl fugaz"
+            >"Vue JS Tutorial"</span> and I told to myself
+          </p>
+          <p class="text-2xl pl-8 lg:pl-16 py-4 font-bold fugaz">I'm gonna make my own website</p>
+          <p>Spent about a week or so planning about what will be on my site</p>
+          <p>
+            I gave it a go and started by my first Youtube channel
+            <span
+              class="text-xl fugaz"
+            >DarkB Hello</span>
+          </p>
+          <p>And that - is my story</p>
+        </div>
+      </div>
+      <div class="my-12">
+        <h6 class="text-2xl font-semibold">What I like to do ?</h6>
+        <div class="pl-5 lg:pl-10 my-6 leading-9">
+          <p>At home, I like to learn new things online, watch Youtube and write codes</p>
+          <p>Outside, I like to feel the breeze while running, meet friends and relax</p>
+        </div>
+      </div>
+      <h3 class="mt-32 w-full text-center text-6xl fugaz">Enjoy!</h3>
+    </div>
   </div>
 </template>
 
@@ -30,5 +60,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

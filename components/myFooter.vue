@@ -1,7 +1,9 @@
 <template>
   <footer class="bg-gray-500">
-    <div class="container mx-auto py-8 flex items-center justify-between flex-col md:flex-row">
-      <div class="py-2 md:py-0 flex item-center justify-center">
+    <div
+      class="container mx-auto py-8 flex items-center justify-between flex-col md:flex-row flex-wrap"
+    >
+      <div class="mx-1">
         <nuxtLink to="/">
           <img
             src="~assets/images/DarkB_logo.png"
@@ -12,20 +14,25 @@
           />
         </nuxtLink>
       </div>
-      <p class="py-2 md:py-0">&copy; 2020 darkb.me - all rights reserved</p>
-      <div class="py-2 md:py-0 rounded-xl bg-gray-700 inline-flex flex-row items-center">
-        <svg height="30px" width="30px" class="ml-2">
-          <use href="~assets/images/icons/earth.svg#earth" />
+
+      <div class="mx-1 py-2 md:py-0">
+        <p>&copy; 2020 darkb.me - all rights reserved</p>
+      </div>
+
+      <div class="mx-1 py-2 md:py-0 rounded-xl bg-gray-700 inline-flex flex-row items-center">
+        <svg width="30px" height="30px" class="ml-4">
+          <use class="text-gray-300" href="~assets/icons/earth.svg#earth" />
         </svg>
-        <div class="inline-block relative rounded-md ml-4 mr-8 my-2 p-1 bg-gray-600">
+        <div class="inline-block relative rounded-md bg-bray-600 ml-2 mr-6 my-1 p-1">
           <select
             id="language"
             name="lang"
-            class="block appearance-none w-full text-xs bg-gray-300 focus:bg-white px-4 py-2 pr-8 rounded border-none leading-tight focus:outline-none focus:shadow-outline"
+            class="block appearance-none w-full text-xs bg-gray-300 focus:bg-white px-4 py-2 pr-6 rounded border-none leading-tight focus:outline-none focus:shadow-outline"
           >
-            <option value="en" selected>English</option>
+            <option value="en">English</option>
             <option value="zh-hk">中文(香港)</option>
           </select>
+
           <div
             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
           >
@@ -39,25 +46,25 @@
           </div>
         </div>
       </div>
-      <div class="py-2 md:py-0 inline-flex flex-row items-center justify-evenly">
+      <div class="mx-1 py-2 md:py-0 inline-flex flex-row items-center justify-evenly">
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/images/icons/youtube.svg#youtube" />
+            <use href="~assets/icons/youtube.svg#youtube" />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/images/icons/github.svg#github" />
+            <use href="~assets/icons/github.svg#github" />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/images/icons/instagram.svg#instagram" />
+            <use href="~assets/icons/instagram.svg#instagram" />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/images/icons/facebook.svg#facebook" />
+            <use href="~assets/icons/facebook.svg#facebook" />
           </svg>
         </a>
       </div>

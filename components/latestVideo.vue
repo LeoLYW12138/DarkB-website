@@ -1,20 +1,13 @@
 <template>
   <section class="container mx-auto w-full">
     <h1 class="text-4xl lg:text-6xl mb-16">Check Out My Latest Video</h1>
-    <div class="mb-4 flex flex-wrap flex-col lg:flex-row items-center justify-between">
+    <div class="mb-4 flex flex-wrap flex-col xl:flex-row items-center justify-between">
       <div class="sm-video-player">
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">Previous Video</h3>
         <div
           class="relative w-full h-full mb-10 overflow-hidden shadow-lg"
           style="padding-top: 56.25%;"
         >
-          <!-- <iframe
-            class="absolute inset-0 w-full h-full"
-            src="https://www.youtube-nocookie.com/embed/ZanubNpTzeU"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>-->
           <client-only placeholder="Loading previous video">
             <youtube
               ref="preVdo"
@@ -32,13 +25,6 @@
           class="relative w-full h-full mb-8 overflow-hidden shadow-xl"
           style="padding-top: 56.25%;"
         >
-          <!-- <iframe
-            class="absolute inset-0 w-full h-full"
-            src="https://www.youtube-nocookie.com/embed/cccbTNKKVxk"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>-->
           <client-only placeholder="Loading new video">
             <youtube
               ref="newVdo"
@@ -60,7 +46,7 @@
       >
         Subscribe!
         <svg width="48px" height="48px">
-          <use href="~assets/images/icons/play_arrow.svg#play-arrow" />
+          <use href="~assets/icons/play_arrow.svg#play-arrow" />
         </svg>
       </a>
     </div>
