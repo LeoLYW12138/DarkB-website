@@ -1,6 +1,6 @@
 <template>
   <div class="my-4 lg:my-8 px-2 lg:px-4">
-    <div class="container">
+    <div class="container mx-auto">
       <h4 class="text-4xl mt-16 font-bold">Something about me...</h4>
       <div class="my-12">
         <h6 class="text-2xl font-semibold">Who am I ?</h6>
