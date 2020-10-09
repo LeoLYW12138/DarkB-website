@@ -54,11 +54,14 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/tailwind.css'],
+  css: ['@/assets/css/tailwind.css', 'aos/dist/aos.css'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vue-youtube.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/vue-youtube.js', ssr: false },
+    { src: '@/plugins/aos.js', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

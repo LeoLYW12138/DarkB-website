@@ -1,20 +1,29 @@
 <template>
   <section class="container mx-auto w-full">
-    <div class="flex flex-col xl:flex-row flex-wrap items-center justify-between">
+    <div
+      class="flex flex-col xl:flex-row flex-wrap items-center justify-between"
+    >
       <div class="inline-block mb-12 xl:mb-0">
         <div class="hero relative">
-          <h1 class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400">DarkB</h1>
+          <h1
+            class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400"
+          >
+            DarkB
+          </h1>
           <h3>Hello, World!</h3>
           <h1 class="ml-8 text-black">I am DarkB</h1>
           <h2>An IT enthusiast</h2>
         </div>
         <div class="px-auto m-2 flex flex-row justify-around">
-          <nuxt-link to="/about" class="btn btn-lightGreen text-base md:text-lg">About me</nuxt-link>
-          <a href="#" class="btn btn-lightGreen text-base md:text-lg">Contact me</a>
+          <nuxt-link to="/about" class="btn btn-lightGreen text-base md:text-lg"
+            >About me</nuxt-link
+          >
+          <a href="#" class="btn btn-lightGreen text-base md:text-lg"
+            >Contact me</a
+          >
         </div>
       </div>
       <div class="blur-edge hidden xl:block">
-        <!-- <img src="https://via.placeholder.com/630x354.png?text=Image+Here" alt="Hero Image" /> -->
         <!-- <img class="hidden" src="~assets/images/computer-hero.jpg" alt="Hero image" /> -->
       </div>
     </div>
