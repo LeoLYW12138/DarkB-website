@@ -19,6 +19,7 @@
     "nuxt": "^2.12.2",
     "nuxt-purgecss": "^1.0.0",
     "vue": "^2.6.12",
+    "vue-d3-cloud": "^0.2.0",
     "vue-template-compiler": "^2.6.12",
     "vue-youtube": "^1.4.0"
   },
