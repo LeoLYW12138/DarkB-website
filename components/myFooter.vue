@@ -19,11 +19,15 @@
         <p>&copy; 2020 darkb.me - all rights reserved</p>
       </div>
 
-      <div class="mx-1 py-2 md:py-0 rounded-xl bg-gray-700 inline-flex flex-row items-center">
+      <div
+        class="mx-1 py-2 md:py-0 rounded-xl bg-gray-700 inline-flex flex-row items-center"
+      >
         <svg width="30px" height="30px" class="ml-4">
           <use class="text-gray-300" href="~assets/icons/earth.svg#earth" />
         </svg>
-        <div class="inline-block relative rounded-md bg-bray-600 ml-2 mr-6 my-1 p-1">
+        <div
+          class="inline-block relative rounded-md bg-bray-600 ml-2 mr-6 my-1 p-1"
+        >
           <select
             id="language"
             name="lang"
@@ -41,18 +45,32 @@
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              <path
+                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+              />
             </svg>
           </div>
         </div>
       </div>
-      <div class="mx-1 py-2 md:py-0 inline-flex flex-row items-center justify-evenly">
-        <a href class="text-gray-600 hover:text-gray-900 mx-2">
+      <div
+        class="mx-1 py-2 md:py-0 inline-flex flex-row items-center justify-evenly"
+      >
+        <a
+          href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?disable_polymer=true"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-gray-600 hover:text-gray-900 mx-2"
+        >
           <svg height="36px" width="36px">
             <use href="~assets/icons/youtube.svg#youtube" />
           </svg>
         </a>
-        <a href class="text-gray-600 hover:text-gray-900 mx-2">
+        <a
+          href="https://github.com/LeoLYW12138"
+          rel="noopener noreferrer"
+          target="_blank"
+          class="text-gray-600 hover:text-gray-900 mx-2"
+        >
           <svg height="36px" width="36px">
             <use href="~assets/icons/github.svg#github" />
           </svg>

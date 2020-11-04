@@ -1,5 +1,11 @@
 <template>
-  <a :href="href" class="mx-auto md:mx-0" :class="{ disabled: disabled }">
+  <a
+    :href="href"
+    rel="noopener noreferrer"
+    target="_blank"
+    class="mx-auto md:mx-0"
+    :class="{ disabled: disabled }"
+  >
     <slot></slot>
     <p :data-content="text" class="text-center">{{ text }}</p>
   </a>
@@ -31,9 +37,9 @@ p {
 p::before {
   content: attr(data-content);
   @apply absolute w-0 bottom-0 left-0 text-center text-blue-700 underline overflow-hidden whitespace-no-wrap;
-  transition: width 275ms ease;
+  transition: width 300ms ease;
 }
-:not(.disabled) > p:hover::before {
+:not(.disabled) > a:hover p::before {
   width: 100%;
 }
 .disabled {

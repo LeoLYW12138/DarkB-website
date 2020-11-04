@@ -4,7 +4,9 @@
       <h4 class="text-4xl mt-16 font-bold mb-12">Contact me at...</h4>
       <div class="lg:px-4 flex md:flex-row flex-col justify-around">
         <social
-          href="mailto:hello.dark.b@gmail.com"
+          href="mailto:hello.dark.b@gmail.com?subject=A%20comment%20on%20your%20site"
+          rel="noopener noreferrer"
+          target="_blank"
           text="hello.dark.b@gmail.com"
         >
           <svg class="mx-auto w-16 lg:w-32">
