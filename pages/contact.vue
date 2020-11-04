@@ -2,21 +2,65 @@
   <div class="my-4 lg:my-8 px-2 lg:px-4">
     <div class="container mx-auto">
       <h4 class="text-4xl mt-16 font-bold mb-12">Contact me at...</h4>
+      <div class="lg:px-4 flex md:flex-row flex-col justify-around">
+        <social
+          href="mailto:hello.dark.b@gmail.com"
+          text="hello.dark.b@gmail.com"
+        >
+          <svg class="mx-auto w-16 lg:w-32">
+            <use href="~/assets/icons/gmail.svg#gmail"></use>
+          </svg>
+        </social>
+        <social href="https://github.com/LeoLYW12138" text="LeoLYW12138">
+          <svg class="mx-auto w-16 lg:w-32">
+            <use href="~/assets/icons/github.svg#github"></use>
+          </svg>
+        </social>
+        <social
+          href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?disable_polymer=true"
+          text="DarkB Hello"
+        >
+          <svg class="mx-auto w-16 lg:w-32">
+            <use
+              style="color: red"
+              href="~/assets/icons/youtube.svg#youtube"
+            ></use>
+          </svg>
+        </social>
+        <social text="Coming Soon" disabled>
+          <svg class="mx-auto w-16 lg:w-32">
+            <use href="~assets/icons/instagram.svg#instagram"></use>
+          </svg>
+        </social>
+        <social text="Coming soon" disabled>
+          <svg class="mx-auto w-16 lg:w-32">
+            <use href="~assets/icons/twitter.svg#twitter"></use>
+          </svg>
+        </social>
+      </div>
       <h4 class="text-4xl mt-16 font-bold mb-12">Or leave a word below</h4>
       <div>
         <cloud
-          class="w-full h-full"
+          class="mx-auto w-full h-full"
           :data="words"
           font="Noto Sans HK"
-          :fontSizeMapper="fontSizeMapper"
+          :font-size-mapper="fontSizeMapper"
           :rotate="rotate"
           spiral="archimedean"
-          onWordClick="null"
+          on-word-click="null"
         />
-        <form @submit.prevent="addWord">
-          <label for="input-word">Input a word </label>
-          <input id="input-word" type="text" name="new" autocomplete="false" />
-          <button type="submit">Add a word</button>
+        <form
+          class="w-full inline-flex justify-center space-x-2"
+          @submit.prevent="addWord"
+        >
+          <input
+            id="input-word"
+            class="pl-4 border-black border-b rounded-lg"
+            type="search"
+            name="new"
+            autocomplete="off"
+          />
+          <button class="btn btn-darkGreen" type="submit">Add a word</button>
         </form>
       </div>
     </div>
@@ -25,10 +69,12 @@
 
 <script>
 import cloud from 'vue-d3-cloud';
+import social from '@/components/sociallinks.vue';
 
 export default {
   components: {
-    cloud
+    cloud,
+    social
   },
   data() {
     return {
