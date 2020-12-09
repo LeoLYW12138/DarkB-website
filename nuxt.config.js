@@ -96,6 +96,9 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    parallel: true,
+    hardSource: true,
+    cache: true,
     extend(config, ctx) {},
     postcss: {
       plugins: {

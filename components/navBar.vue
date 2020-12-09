@@ -1,17 +1,22 @@
 <template>
   <div class="bg-white shadow-md">
     <!-- whole navBar start -->
-    <header class="navbar h-12 w-screen inline-flex flex-row justify-between items-center">
+    <header class="navbar h-12 flex flex-row justify-between items-center">
       <!-- left box -->
       <div class="inline-flex flex-row justify-between items-center">
         <nuxt-link to="/">
-          <img id="logo" src="~/assets/images/logo.png" alt="Home Page" title="Home Page" />
+          <img
+            id="logo"
+            src="~/assets/images/logo.png"
+            alt="Home Page"
+            title="Home Page"
+          />
         </nuxt-link>
         <nav-item class="hidden lg:inline"></nav-item>
       </div>
 
       <!-- middle box -->
-      <search-bar :is-open="openSearchBar"></search-bar>
+      <search-bar class="flex-grow" :is-open="openSearchBar"></search-bar>
 
       <!-- right box -->
       <ul class="h-12 inline-flex flex-row justify-between items-center">
@@ -46,10 +51,17 @@
         <li class="hidden lg:inline lg:mr-6">
           <a href="#">Login</a>
           <p class="inline px-1">or</p>
-          <a href="#" class="px-3 py-1 rounded-full shadow btn-darkGreen">Sign Up</a>
+          <a href="#" class="px-3 py-1 rounded-full shadow btn-darkGreen"
+            >Sign Up</a
+          >
         </li>
         <div class="px-2 block lg:hidden">
-          <svg height="24px" width="24px" class="icon clickable" @click="openmenu = !openmenu">
+          <svg
+            height="24px"
+            width="24px"
+            class="icon clickable"
+            @click="openmenu = !openmenu"
+          >
             <use href="~assets/icons/hamberger.svg#hamberger" />
           </svg>
         </div>
@@ -85,6 +97,12 @@ import searchBar from '@/components/searchBar.vue';
           openmenu: false,
           isDarkThemed: false,
           openSearchBar: false
+        }
+      },
+      watch:{
+        $route(){
+          this.openmenu = false;
+          this.openSearchBar = false;
         }
       },
     }

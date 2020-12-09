@@ -18,8 +18,10 @@
           <nuxt-link to="/about" class="btn btn-lightGreen text-base md:text-lg"
             >About me</nuxt-link
           >
-          <a href="#" class="btn btn-lightGreen text-base md:text-lg"
-            >Contact me</a
+          <nuxt-link
+            to="/contact"
+            class="btn btn-lightGreen text-base md:text-lg"
+            >Contact me</nuxt-link
           >
         </div>
       </div>
@@ -31,9 +33,7 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {}
 </script>
 
 <style scoped>

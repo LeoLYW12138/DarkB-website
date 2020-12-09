@@ -1,12 +1,10 @@
 <template>
   <div class="my-4 lg:my-8 px-2 lg:px-4">
     <div class="container mx-auto">
-      <h4 class="text-4xl mt-16 font-bold mb-12">Contact me at...</h4>
+      <h4 class="header-font">Contact me at...</h4>
       <div class="lg:px-4 flex md:flex-row flex-col justify-around">
         <social
           href="mailto:hello.dark.b@gmail.com?subject=A%20comment%20on%20your%20site"
-          rel="noopener noreferrer"
-          target="_blank"
           text="hello.dark.b@gmail.com"
         >
           <svg class="mx-auto w-16 lg:w-32">
@@ -40,29 +38,33 @@
           </svg>
         </social>
       </div>
-      <h4 class="text-4xl mt-16 font-bold mb-12">Or leave a word below</h4>
+      <h4 class="header-font">Or leave a word below</h4>
       <div>
         <cloud
-          class="mx-auto w-full h-full"
+          class="mx-auto w-full h-auto"
           :data="words"
           font="Noto Sans HK"
           :font-size-mapper="fontSizeMapper"
           :rotate="rotate"
           spiral="archimedean"
-          on-word-click="null"
+          :on-word-click="() => false"
+          :on-word-hover="onWordHover"
         />
         <form
-          class="w-full inline-flex justify-center space-x-2"
+          class="w-full flex flex-wrap justify-center space-x-2"
           @submit.prevent="addWord"
         >
           <input
             id="input-word"
-            class="pl-4 border-black border-b rounded-lg"
+            v-model.trim="inputword"
+            class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md"
             type="search"
-            name="new"
+            placeholder="One word only"
             autocomplete="off"
           />
-          <button class="btn btn-darkGreen" type="submit">Add a word</button>
+          <button class="btn btn-darkGreen" type="submit">
+            Add {{ displayWord() }}
+          </button>
         </form>
       </div>
     </div>
@@ -70,40 +72,54 @@
 </template>
 
 <script>
-import cloud from 'vue-d3-cloud';
-import social from '@/components/sociallinks.vue';
+import cloud from '@/components/Cloud.vue'
+import social from '@/components/sociallinks.vue'
 
 export default {
   components: {
     cloud,
-    social
+    social,
   },
   data() {
     return {
+      inputword: '',
       words: [
         { text: 'Leave', value: 1000 },
         { text: 'Some', value: 1000 },
         { text: 'Comment', value: 1000 },
         { text: 'Here', value: 1000 },
-        { text: 'Would you', value: 1000 },
+        { text: 'Would', value: 1000 },
+        { text: 'You', value: 1000 },
       ],
-      fontSizeMapper: word => Math.log2(word.value) * 5,
-      rotate: () => (~~(Math.random() * 6) - 2) * 15
+      fontSizeMapper: (word) => Math.log2(word.value) * 5,
+      rotate: () => (~~(Math.random() * 6) - 3) * 15,
+      onWordHover: (word) =>
+        console.log(
+          `Popularity of ${word.text}: ${(word.value - 1000) / 500 + 1}`
+        ),
     }
   },
   methods: {
-    addWord(e){
-      const text = e.target.elements.new.value;
+    addWord() {
+      const text = this.inputword.split(' ', 1)[0]
       if (text) {
-        const wordIdx = this.words.findIndex(word => word.text === text);
-        if (wordIdx > -1){
-          this.words[wordIdx].value += 500;
+        const wordIdx = this.words.findIndex((word) => word.text === text)
+        if (wordIdx > -1) {
+          this.words[wordIdx].value += 500
         } else {
-          this.words.push({text, value: 1000});
+          this.words.push({ text, value: 1000 })
         }
       }
-    }
-  }
+    },
+    displayWord() {
+      const word = this.inputword
+      if (!word) {
+        return 'nothing'
+      } else {
+        return `"${word.split(' ', 1)[0]}"` // limit to one word
+      }
+    },
+  },
 }
 </script>
 

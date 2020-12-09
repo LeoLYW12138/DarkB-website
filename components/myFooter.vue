@@ -31,7 +31,7 @@
           <select
             id="language"
             name="lang"
-            class="block appearance-none w-full text-xs bg-gray-300 focus:bg-white px-4 py-2 pr-6 rounded border-none leading-tight focus:outline-none focus:shadow-outline"
+            class="block appearance-none w-full tertiary-font bg-gray-300 focus:bg-white px-4 py-2 pr-6 rounded border-none leading-tight focus:outline-none focus:shadow-outline"
           >
             <option value="en">English</option>
             <option value="zh-hk">中文(香港)</option>
