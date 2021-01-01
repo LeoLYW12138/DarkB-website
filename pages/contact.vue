@@ -39,34 +39,36 @@
         </social>
       </div>
       <h4 class="header-font">Or leave a word below</h4>
-      <div>
+      <div ref="cloud-container">
         <cloud
           class="mx-auto w-full h-auto"
           :data="words"
           font="Noto Sans HK"
           :font-size-mapper="fontSizeMapper"
           :rotate="rotate"
-          spiral="archimedean"
           :on-word-click="() => false"
           :on-word-hover="onWordHover"
         />
-        <form
-          class="w-full flex flex-wrap justify-center space-x-2"
-          @submit.prevent="addWord"
+        <span
+          ref="tooltip"
+          class="tooltip absolute whitespace-no-wrap hidden bg-yellow-400 opacity-75 border border-gray-600 shadow-md rounded-md p-2 z-10"
         >
-          <input
-            id="input-word"
-            v-model.trim="inputword"
-            class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md"
-            type="search"
-            placeholder="One word only"
-            autocomplete="off"
-          />
-          <button class="btn btn-darkGreen" type="submit">
-            Add {{ displayWord() }}
-          </button>
-        </form>
+        </span>
       </div>
+      <form
+        class="w-full flex flex-wrap justify-center space-x-2"
+        @submit.prevent="addWord"
+      >
+        <input
+          v-model.trim="inputword"
+          class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md"
+          type="search"
+          placeholder="Add a word here"
+        />
+        <button class="btn btn-darkGreen" type="submit">
+          Add {{ displayWord() }}
+        </button>
+      </form>
     </div>
   </div>
 </template>
@@ -77,26 +79,51 @@ import social from '@/components/sociallinks.vue'
 
 export default {
   components: {
-    cloud,
     social,
+    cloud,
   },
   data() {
     return {
       inputword: '',
+      listenerAdded: false,
       words: [
-        { text: 'Leave', value: 1000 },
-        { text: 'Some', value: 1000 },
-        { text: 'Comment', value: 1000 },
-        { text: 'Here', value: 1000 },
         { text: 'Would', value: 1000 },
         { text: 'You', value: 1000 },
+        { text: 'Leave', value: 1000 },
+        { text: 'Some', value: 1000 },
+        { text: 'Comments', value: 1000 },
+        { text: 'Here', value: 1000 },
       ],
       fontSizeMapper: (word) => Math.log2(word.value) * 5,
       rotate: () => (~~(Math.random() * 6) - 3) * 15,
-      onWordHover: (word) =>
-        console.log(
-          `Popularity of ${word.text}: ${(word.value - 1000) / 500 + 1}`
-        ),
+      onWordHover: (word) => {
+        const tooltip = this.$refs.tooltip
+        tooltip.innerHTML = `${word.text}<br>Popularity: ${
+          (word.value - 1000) / 500 + 1
+        }`
+        tooltip.style.display = 'block'
+
+        if (!this.listenerAdded) {
+          const cloudContainer = this.$refs['cloud-container']
+
+          cloudContainer.addEventListener('mousemove', (e) => {
+            tooltip.style.left =
+              e.pageX + tooltip.clientWidth + 10 < document.body.clientWidth
+                ? e.pageX + 10 + 'px'
+                : document.body.clientWidth + 5 - tooltip.clientWidth + 'px'
+            tooltip.style.top =
+              e.pageY + tooltip.clientHeight + 10 < document.body.clientHeight
+                ? e.pageY + 10 + 'px'
+                : document.body.clientHeight + 5 - tooltip.clientHeight + 'px'
+          })
+
+          cloudContainer.addEventListener('mouseout', (e) => {
+            tooltip.style.display = 'none'
+          })
+
+          this.listenerAdded = true
+        }
+      },
     }
   },
   methods: {
@@ -116,7 +143,7 @@ export default {
       if (!word) {
         return 'nothing'
       } else {
-        return `"${word.split(' ', 1)[0]}"` // limit to one word
+        return `"${word.split(' ', 1)[0]}"`
       }
     },
   },

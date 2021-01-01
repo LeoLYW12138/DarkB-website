@@ -50,10 +50,6 @@ export default {
       type: String,
       default: 'random',
     },
-    colors: {
-      type: Array,
-      default: () => null,
-    },
   },
   data() {
     return {
@@ -153,6 +149,7 @@ export default {
         .attr('transform', (d) => {
           return `translate(${[d.x, d.y]})rotate(${d.rotate})`
         })
+        .text((d) => d.text)
         .style('fill-opacity', 1)
     },
   },
@@ -162,4 +159,3 @@ export default {
 <template>
   <div ref="wordCloud" class="wordCloud"></div>
 </template>
-
