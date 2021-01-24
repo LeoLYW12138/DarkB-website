@@ -23,7 +23,11 @@
         class="mx-1 py-2 md:py-0 rounded-xl bg-gray-700 inline-flex flex-row items-center"
       >
         <svg width="30px" height="30px" class="ml-4">
-          <use class="text-gray-300" href="~assets/icons/earth.svg#earth" />
+          <use
+            class="text-gray-300"
+            xlink:href="~assets/icons/earth.svg#earth"
+            href="~assets/icons/earth.svg#earth"
+          />
         </svg>
         <div
           class="inline-block relative rounded-md bg-bray-600 ml-2 mr-6 my-1 p-1"
@@ -62,7 +66,10 @@
           class="text-gray-600 hover:text-gray-900 mx-2"
         >
           <svg height="36px" width="36px">
-            <use href="~assets/icons/youtube.svg#youtube" />
+            <use
+              xlink:href="~assets/icons/youtube.svg#youtube"
+              href="~assets/icons/youtube.svg#youtube"
+            />
           </svg>
         </a>
         <a
@@ -72,17 +79,26 @@
           class="text-gray-600 hover:text-gray-900 mx-2"
         >
           <svg height="36px" width="36px">
-            <use href="~assets/icons/github.svg#github" />
+            <use
+              xlink:href="~assets/icons/github.svg#github"
+              href="~assets/icons/github.svg#github"
+            />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/icons/instagram.svg#instagram" />
+            <use
+              xlink:href="~assets/icons/instagram.svg#instagram"
+              href="~assets/icons/instagram.svg#instagram"
+            />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
-            <use href="~assets/icons/facebook.svg#facebook" />
+            <use
+              xlink:href="~assets/icons/facebook.svg#facebook"
+              href="~assets/icons/facebook.svg#facebook"
+            />
           </svg>
         </a>
       </div>
@@ -91,9 +107,7 @@
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {}
 </script>
 
 <style scoped>

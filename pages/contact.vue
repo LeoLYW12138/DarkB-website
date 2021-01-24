@@ -8,12 +8,18 @@
           text="hello.dark.b@gmail.com"
         >
           <svg class="mx-auto w-16 lg:w-32">
-            <use href="~/assets/icons/gmail.svg#gmail"></use>
+            <use
+              xlink:href="~/assets/icons/gmail.svg#gmail"
+              href="~/assets/icons/gmail.svg#gmail"
+            ></use>
           </svg>
         </social>
         <social href="https://github.com/LeoLYW12138" text="LeoLYW12138">
           <svg class="mx-auto w-16 lg:w-32">
-            <use href="~/assets/icons/github.svg#github"></use>
+            <use
+              xlink:href="~/assets/icons/github.svg#github"
+              href="~/assets/icons/github.svg#github"
+            ></use>
           </svg>
         </social>
         <social
@@ -23,23 +29,34 @@
           <svg class="mx-auto w-16 lg:w-32">
             <use
               style="color: red"
+              xlink:href="~/assets/icons/youtube.svg#youtube"
               href="~/assets/icons/youtube.svg#youtube"
             ></use>
           </svg>
         </social>
         <social text="Coming Soon" disabled>
           <svg class="mx-auto w-16 lg:w-32">
-            <use href="~assets/icons/instagram.svg#instagram"></use>
+            <use
+              xlink:href="~assets/icons/instagram.svg#instagram"
+              href="~assets/icons/instagram.svg#instagram"
+            ></use>
           </svg>
         </social>
         <social text="Coming soon" disabled>
           <svg class="mx-auto w-16 lg:w-32">
-            <use href="~assets/icons/twitter.svg#twitter"></use>
+            <use
+              xlink:href="~assets/icons/twitter.svg#twitter"
+              href="~assets/icons/twitter.svg#twitter"
+            ></use>
           </svg>
         </social>
       </div>
       <h4 class="header-font">Or leave a word below</h4>
-      <div ref="cloud-container">
+      <div
+        ref="cloud-container"
+        class="cloud-container"
+        :class="{ loaded: wordsFetched }"
+      >
         <cloud
           class="mx-auto w-full h-auto"
           :data="words"
@@ -52,8 +69,7 @@
         <span
           ref="tooltip"
           class="tooltip absolute whitespace-no-wrap hidden bg-yellow-400 opacity-75 border border-gray-600 shadow-md rounded-md p-2 z-10"
-        >
-        </span>
+        ></span>
       </div>
       <form
         class="w-full flex flex-wrap justify-center space-x-2"
@@ -86,13 +102,15 @@ export default {
     return {
       inputword: '',
       listenerAdded: false,
+      unsubscribe: null,
+      wordsFetched: false,
       words: [
-        { text: 'Would', value: 1000 },
-        { text: 'You', value: 1000 },
-        { text: 'Leave', value: 1000 },
-        { text: 'Some', value: 1000 },
-        { text: 'Comments', value: 1000 },
-        { text: 'Here', value: 1000 },
+        // { text: 'Would', value: 1000 },
+        // { text: 'You', value: 1000 },
+        // { text: 'Leave', value: 1000 },
+        // { text: 'Some', value: 1000 },
+        // { text: 'Comments', value: 1000 },
+        // { text: 'Here', value: 1000 },
       ],
       fontSizeMapper: (word) => Math.log2(word.value) * 5,
       rotate: () => (~~(Math.random() * 6) - 3) * 15,
@@ -107,14 +125,24 @@ export default {
           const cloudContainer = this.$refs['cloud-container']
 
           cloudContainer.addEventListener('mousemove', (e) => {
+            const bodyWidth = document.body.clientWidth
+            const bodyHeight = document.body.clientHeight
+            const containerX = cloudContainer.getClientRects()[0].left
+            const containerY = cloudContainer.getClientRects()[0].top
+            const tooltipWidth = tooltip.clientWidth
+            const tooltipHeight = tooltip.clientHeight
+            const offset = 10
+
+            // tooltip.style.left = e.clientX - containerX + 10 + 'px'
             tooltip.style.left =
-              e.pageX + tooltip.clientWidth + 10 < document.body.clientWidth
-                ? e.pageX + 10 + 'px'
-                : document.body.clientWidth + 5 - tooltip.clientWidth + 'px'
+              e.pageX + tooltipWidth + offset < bodyWidth
+                ? e.clientX - containerX + offset + 'px'
+                : bodyWidth - offset / 2 - tooltipWidth - containerX + 'px'
+            // tooltip.style.top = e.clientY - containerY + 10 + 'px'
             tooltip.style.top =
-              e.pageY + tooltip.clientHeight + 10 < document.body.clientHeight
-                ? e.pageY + 10 + 'px'
-                : document.body.clientHeight + 5 - tooltip.clientHeight + 'px'
+              e.pageY + tooltipHeight + offset < bodyHeight
+                ? e.clientY - containerY + offset + 'px'
+                : bodyHeight - offset / 2 - tooltipHeight - containerY + 'px'
           })
 
           cloudContainer.addEventListener('mouseout', (e) => {
@@ -126,6 +154,20 @@ export default {
       },
     }
   },
+  mounted() {
+    const docRef = this.$fire.firestore.doc('word-cloud/comments')
+    // const data = (await docRef.get()).data()
+    // if (data) {
+    //   // this.words = data.words
+    // }
+    this.unsubscribe = docRef.onSnapshot((doc) => {
+      this.wordsFetched = true
+      this.words = doc.data().words
+    })
+  },
+  beforeDestroy() {
+    this.unsubscribe()
+  },
   methods: {
     addWord() {
       const text = this.inputword.split(' ', 1)[0]
@@ -136,6 +178,7 @@ export default {
         } else {
           this.words.push({ text, value: 1000 })
         }
+        this.updateFirestore()
       }
     },
     displayWord() {
@@ -146,9 +189,51 @@ export default {
         return `"${word.split(' ', 1)[0]}"`
       }
     },
+    async updateFirestore() {
+      try {
+        await this.$fire.firestore
+          .doc('word-cloud/comments')
+          .update({ words: this.words })
+      } catch (e) {
+        console.error(e)
+      }
+    },
   },
 }
 </script>
 
 <style scoped>
+.cloud-container {
+  min-width: 60%;
+  min-height: 150px;
+  position: relative;
+}
+
+.cloud-container:not(.loaded)::before {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  top: 2rem;
+  bottom: 2rem;
+  z-index: -1;
+  background-repeat: repeat-y;
+  background-image: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 80%
+    ),
+    linear-gradient(lightgray 100%, transparent 0);
+  background-size: 100px 100%, 100% 100%;
+  background-position: 0 0, 0 0;
+
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 100% 0, 0 0;
+  }
+}
 </style>

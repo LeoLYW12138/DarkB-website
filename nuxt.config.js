@@ -17,7 +17,8 @@ export default {
    ** env var can be accessd in server only
    */
   privateRuntimeConfig: {
-    apiKey: process.env.API_KEY
+    apiKey: process.env.API_KEY,
+    FIRE_ENV: process.env.FIRESTORE_KEY
   },
   /*
    ** Headers of the page
@@ -77,8 +78,29 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/firebase',
     'nuxt-purgecss'
   ],
+
+  /*
+   ** Firebase module configuration
+   ** See https://firebase.nuxtjs.org/guide/options
+   */
+  firebase: {
+    config: {
+      apiKey: process.env.FIRESTORE_KEY,
+      authDomain: 'darkb-wordcloud.firebaseapp.com',
+      projectId: 'darkb-wordcloud',
+      databaseURL: 'https://darkb-wordcloud.firebaseio.com',
+      storageBucket: 'darkb-wordcloud.appspot.com',
+      messagingSenderId: '1049498161231',
+      appId: '1:1049498161231:web:cee1e9fca86b72d8399a3a',
+      measurementId: 'G-WJ11ZKRWG1'
+    },
+    services: {
+      firestore: true,
+    }
+  },
 
   // purgeCSS: {
   //   mode: 'postcss',

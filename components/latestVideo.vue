@@ -1,12 +1,16 @@
 <template>
   <section class="container mx-auto w-full">
     <h1 class="text-4xl lg:text-6xl mb-16">Check Out My Latest Video</h1>
-    <div class="mb-4 flex flex-wrap flex-col xl:flex-row items-center justify-between">
+    <div
+      class="mb-4 flex flex-wrap flex-col xl:flex-row items-center justify-between"
+    >
       <div class="sm-video-player">
-        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">Previous Video</h3>
+        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
+          Previous Video
+        </h3>
         <div
           class="relative w-full h-full mb-10 overflow-hidden shadow-lg"
-          style="padding-top: 56.25%;"
+          style="padding-top: 56.25%"
         >
           <client-only placeholder="Loading previous video">
             <youtube
@@ -20,10 +24,12 @@
         </div>
       </div>
       <div class="md-video-player">
-        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">Newborn Video</h3>
+        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
+          Newborn Video
+        </h3>
         <div
           class="relative w-full h-full mb-8 overflow-hidden shadow-xl"
-          style="padding-top: 56.25%;"
+          style="padding-top: 56.25%"
         >
           <client-only placeholder="Loading new video">
             <youtube
@@ -46,7 +52,10 @@
       >
         Subscribe!
         <svg width="48px" height="48px">
-          <use href="~assets/icons/play_arrow.svg#play-arrow" />
+          <use
+            xlink:href="~assets/icons/play_arrow.svg#play-arrow"
+            href="~assets/icons/play_arrow.svg#play-arrow"
+          />
         </svg>
       </a>
     </div>
@@ -54,19 +63,19 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      videoIds: {
-        type: Object,
-        required: true
-      },
+export default {
+  props: {
+    videoIds: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
-        // videoIds: {'pre': "ZanubNpTzeU", 'new': "cccbTNKKVxk"}
-      }
-    },
-  }
+  },
+  data() {
+    return {
+      // videoIds: {'pre': "ZanubNpTzeU", 'new': "cccbTNKKVxk"}
+    }
+  },
+}
 </script>
 
 <style scoped>

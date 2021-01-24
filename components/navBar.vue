@@ -23,26 +23,38 @@
         <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/icons/search.svg#search" />
+              <use
+                xlink:href="~assets/icons/search.svg#search"
+                href="~assets/icons/search.svg#search"
+              />
             </svg>
           </div>
         </li>
         <li>
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/icons/settings.svg#settings" />
+              <use
+                xlink:href="~assets/icons/settings.svg#settings"
+                href="~assets/icons/settings.svg#settings"
+              />
             </svg>
           </div>
         </li>
         <li @click="isDarkThemed = !isDarkThemed">
           <div v-if="isDarkThemed" class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/icons/moon-light.svg#dark" />
+              <use
+                xlink:href="~assets/icons/moon-light.svg#dark"
+                href="~assets/icons/moon-light.svg#dark"
+              />
             </svg>
           </div>
           <div v-else class="clickable">
             <svg height="24px" width="24px" class="icon">
-              <use href="~assets/icons/brightness.svg#light" />
+              <use
+                xlink:href="~assets/icons/brightness.svg#light"
+                href="~assets/icons/brightness.svg#light"
+              />
             </svg>
           </div>
         </li>
@@ -62,7 +74,10 @@
             class="icon clickable"
             @click="openmenu = !openmenu"
           >
-            <use href="~assets/icons/hamberger.svg#hamberger" />
+            <use
+              xlink:href="~assets/icons/hamberger.svg#hamberger"
+              href="~assets/icons/hamberger.svg#hamberger"
+            />
           </svg>
         </div>
       </ul>
@@ -85,27 +100,27 @@
 </template>
 
 <script>
-import navItem from '@/components/navItem.vue';
-import searchBar from '@/components/searchBar.vue';
-    export default {
-      components: {
-        'nav-item': navItem,
-        'search-bar': searchBar
-      },
-      data() {
-        return {
-          openmenu: false,
-          isDarkThemed: false,
-          openSearchBar: false
-        }
-      },
-      watch:{
-        $route(){
-          this.openmenu = false;
-          this.openSearchBar = false;
-        }
-      },
+import navItem from '@/components/navItem.vue'
+import searchBar from '@/components/searchBar.vue'
+export default {
+  components: {
+    'nav-item': navItem,
+    'search-bar': searchBar,
+  },
+  data() {
+    return {
+      openmenu: false,
+      isDarkThemed: false,
+      openSearchBar: false,
     }
+  },
+  watch: {
+    $route() {
+      this.openmenu = false
+      this.openSearchBar = false
+    },
+  },
+}
 </script>
 
 <style>
