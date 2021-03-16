@@ -8,39 +8,14 @@
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
           Previous Video
         </h3>
-        <div
-          class="relative w-full h-full mb-10 overflow-hidden shadow-lg"
-          style="padding-top: 56.25%"
-        >
-          <client-only placeholder="Loading previous video">
-            <youtube
-              ref="preVdo"
-              class="absolute inset-0 w-full h-full"
-              :video-id="videoIds['pre']"
-              allow="encrypted-media; gyroscope; picture-in-picture"
-              nocookie
-            ></youtube>
-          </client-only>
-        </div>
+        <youtube-wrapper :video-id="videoIds.pre" :fetch-state="$fetchState" />
       </div>
+
       <div class="md-video-player">
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
           Newborn Video
         </h3>
-        <div
-          class="relative w-full h-full mb-8 overflow-hidden shadow-xl"
-          style="padding-top: 56.25%"
-        >
-          <client-only placeholder="Loading new video">
-            <youtube
-              ref="newVdo"
-              class="absolute inset-0 w-full h-full"
-              :video-id="videoIds['new']"
-              allow="encrypted-media; gyroscope; picture-in-picture"
-              nocookie
-            ></youtube>
-          </client-only>
-        </div>
+        <youtube-wrapper :video-id="videoIds.new" :fetch-state="$fetchState" />
       </div>
     </div>
     <div class="inline-flex w-full justify-center">
@@ -63,17 +38,48 @@
 </template>
 
 <script>
+import youtubeWrapper from '@/components/youtube-wrapper.vue'
 export default {
-  props: {
-    videoIds: {
-      type: Object,
-      required: true,
-    },
+  components: {
+    'youtube-wrapper': youtubeWrapper,
   },
+  // activated() {
+  //   if (this.$fetchState.timestamp <= Date.now() - 60 * 60 * 1000) {
+  //     this.$fetch()
+  //   }
+  // },
+  async fetch() {
+    const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+    const API_KEY = this.$nuxt.context.$config.apiKey
+    // console.log(this.$config.apiKey)
+    const data = await this.$axios
+      .get(
+        API_URL +
+          `?key=${API_KEY}&channelId=UClBq509EYyeMgN2wddN5v6g&order=date`
+      )
+      .then((res) => {
+        return res.data.items.slice(0, 2)
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+    this.videoIds = { pre: data[1].id.videoId, new: data[0].id.videoId }
+  },
+  fetchOnServer: false,
   data() {
     return {
-      // videoIds: {'pre': "ZanubNpTzeU", 'new': "cccbTNKKVxk"}
+      videoIds: {},
+      fetchState: {},
     }
+  },
+  methods: {
+    updateFetchState() {
+      this.fetchState = {
+        ...this.$fetchState,
+        pendingMsg: 'Loading video',
+        errrorMsg: 'Error loading the video. Please try again!',
+      }
+    },
   },
 }
 </script>
