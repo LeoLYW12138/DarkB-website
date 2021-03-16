@@ -5,7 +5,7 @@ export default {
    */
   server: {
     port: 3000,
-    host: '192.168.1.123'
+    host: '10.89.128.227'
   },
   /*
    ** env var can be accessd in both server and client

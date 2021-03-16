@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import navBar from '@/components/navBar.vue';
-import myFooter from '@/components/myFooter.vue';
+import navBar from '@/components/navBar.vue'
+import myFooter from '@/components/myFooter.vue'
 export default {
   components: {
     'nav-bar': navBar,
-    'my-footer': myFooter
+    'my-footer': myFooter,
   },
 }
 </script>

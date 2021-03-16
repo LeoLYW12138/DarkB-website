@@ -133,12 +133,10 @@ export default {
             const tooltipHeight = tooltip.clientHeight
             const offset = 10
 
-            // tooltip.style.left = e.clientX - containerX + 10 + 'px'
             tooltip.style.left =
               e.pageX + tooltipWidth + offset < bodyWidth
                 ? e.clientX - containerX + offset + 'px'
                 : bodyWidth - offset / 2 - tooltipWidth - containerX + 'px'
-            // tooltip.style.top = e.clientY - containerY + 10 + 'px'
             tooltip.style.top =
               e.pageY + tooltipHeight + offset < bodyHeight
                 ? e.clientY - containerY + offset + 'px'
@@ -156,10 +154,6 @@ export default {
   },
   mounted() {
     const docRef = this.$fire.firestore.doc('word-cloud/comments')
-    // const data = (await docRef.get()).data()
-    // if (data) {
-    //   // this.words = data.words
-    // }
     this.unsubscribe = docRef.onSnapshot((doc) => {
       this.wordsFetched = true
       this.words = doc.data().words
