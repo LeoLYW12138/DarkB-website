@@ -3,9 +3,13 @@ export default {
   /*
    ** Server host and port
    */
+  // server: {
+  //   port: 3000,
+  //   host: '10.89.128.227'
+  // },
   server: {
-    port: 3000,
-    host: '10.89.128.227'
+    port: process.env.PORT,
+    host: process.env.HOST
   },
   /*
    ** env var can be accessd in both server and client
@@ -17,7 +21,7 @@ export default {
    ** env var can be accessd in server only
    */
   privateRuntimeConfig: {
-    apiKey: process.env.API_KEY,
+    YoutubeKey: process.env.YOUTUBE_KEY,
     FIRE_ENV: process.env.FIRESTORE_KEY
   },
   /*
@@ -110,7 +114,18 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    prefix: "/youtube-api/",
+    proxy: true,
+  },
+  proxy: {
+    "/youtube-api": {
+      target: "https://www.googleapis.com/youtube/v3/search",
+      pathRewrite: {'^/youtube-api/': ''},
+      headers: {'X-API-KEY': process.env.YOUTUBE_KEY},
+      logLevel: 'debug'
+    }
+  },
   /*
    ** Build configuration
    */

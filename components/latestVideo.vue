@@ -50,8 +50,7 @@ export default {
   // },
   async fetch() {
     const API_URL = 'https://www.googleapis.com/youtube/v3/search'
-    const API_KEY = this.$nuxt.context.$config.apiKey
-    // console.log(this.$config.apiKey)
+    const API_KEY = this.$nuxt.context.$config.YoutubeKey
     const data = await this.$axios
       .get(
         API_URL +
@@ -64,12 +63,17 @@ export default {
         console.error(err)
       })
     this.videoIds = { pre: data[1].id.videoId, new: data[0].id.videoId }
+    this.updateFetchState()
   },
-  fetchOnServer: false,
   data() {
     return {
       videoIds: {},
-      fetchState: {},
+      fetchState: {
+        pending: true,
+        error: false,
+        pendingMsg: 'Loading video',
+        errorMsg: 'Error loading the video. Please try again!',
+      },
     }
   },
   methods: {
@@ -77,7 +81,7 @@ export default {
       this.fetchState = {
         ...this.$fetchState,
         pendingMsg: 'Loading video',
-        errrorMsg: 'Error loading the video. Please try again!',
+        errorMsg: 'Error loading the video. Please try again!',
       }
     },
   },

@@ -2,13 +2,13 @@
   <section>
     <div class="container py-24 mx-auto">
       <h1 class="text-4xl lg:text-6xl mb-16">Latest / Trending Posts</h1>
-      <div class="flex flex-wrap justify-center -m-4">
+      <div class="flex flex-col lg:flex-row justify-center items-stretch -m-4">
         <div
           v-for="article in trendArticles"
           :key="article.id"
-          class="p-4 w-full max-w lg:w-1/3"
+          class="p-4 w-full lg:w-1/3"
         >
-          <card :article="article" />
+          <card :article="article" custom-class="mx-auto" />
         </div>
       </div>
     </div>
