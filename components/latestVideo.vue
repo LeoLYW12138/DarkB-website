@@ -8,14 +8,20 @@
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
           Previous Video
         </h3>
-        <youtube-wrapper :video-id="videoIds.pre" :fetch-state="$fetchState" />
+        <youtube-wrapper
+          :video-id="videoIds.prev || ''"
+          :fetch-state="$fetchState"
+        />
       </div>
 
       <div class="md-video-player">
         <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
           Newborn Video
         </h3>
-        <youtube-wrapper :video-id="videoIds.new" :fetch-state="$fetchState" />
+        <youtube-wrapper
+          :video-id="videoIds.curr || ''"
+          :fetch-state="$fetchState"
+        />
       </div>
     </div>
     <div class="inline-flex w-full justify-center">
@@ -38,7 +44,7 @@
 </template>
 
 <script>
-import youtubeWrapper from '@/components/youtube-wrapper.vue'
+import youtubeWrapper from '@/components/youtube-wrapper.vue';
 export default {
   components: {
     'youtube-wrapper': youtubeWrapper,
@@ -49,43 +55,24 @@ export default {
   //   }
   // },
   async fetch() {
-    const API_URL = 'https://www.googleapis.com/youtube/v3/search'
-    const API_KEY = this.$nuxt.context.$config.YoutubeKey
-    const data = await this.$axios
-      .get(
-        API_URL +
-          `?key=${API_KEY}&channelId=UClBq509EYyeMgN2wddN5v6g&order=date`
-      )
-      .then((res) => {
-        return res.data.items.slice(0, 2)
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-    this.videoIds = { pre: data[1].id.videoId, new: data[0].id.videoId }
-    this.updateFetchState()
+    if (Object.keys(this.videoIds).length <= 0) {
+      const [curr, prev] = await this.$axios
+        .get('/api/latest-video?limit=2')
+        .then((res) => {
+          return res.data.videoIds;
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+      this.videoIds = { prev, curr };
+    }
   },
   data() {
     return {
       videoIds: {},
-      fetchState: {
-        pending: true,
-        error: false,
-        pendingMsg: 'Loading video',
-        errorMsg: 'Error loading the video. Please try again!',
-      },
-    }
+    };
   },
-  methods: {
-    updateFetchState() {
-      this.fetchState = {
-        ...this.$fetchState,
-        pendingMsg: 'Loading video',
-        errorMsg: 'Error loading the video. Please try again!',
-      }
-    },
-  },
-}
+};
 </script>
 
 <style scoped>

@@ -3,10 +3,6 @@ export default {
   /*
    ** Server host and port
    */
-  // server: {
-  //   port: 3000,
-  //   host: '10.89.128.227'
-  // },
   server: {
     port: process.env.PORT,
     host: process.env.HOST
@@ -63,8 +59,9 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
+  serverMiddleware: ['~/api/index'],
   plugins: [
-    { src: '~/plugins/vue-youtube.js', ssr: false },
+    // { src: '~/plugins/vue-youtube.js', ssr: false },
     { src: '@/plugins/aos.js', ssr: false }
   ],
   /*
@@ -102,7 +99,7 @@ export default {
       measurementId: 'G-WJ11ZKRWG1'
     },
     services: {
-      firestore: true,
+      firestore: true
     }
   },
 
@@ -114,18 +111,18 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {
-    prefix: "/youtube-api/",
-    proxy: true,
-  },
-  proxy: {
-    "/youtube-api": {
-      target: "https://www.googleapis.com/youtube/v3/search",
-      pathRewrite: {'^/youtube-api/': ''},
-      headers: {'X-API-KEY': process.env.YOUTUBE_KEY},
-      logLevel: 'debug'
-    }
-  },
+  // axios: {
+  //   prefix: "/youtube-api/",
+  //   proxy: true,
+  // },
+  // proxy: {
+  //   "/youtube-api": {
+  //     target: "https://www.googleapis.com/youtube/v3/search",
+  //     pathRewrite: {'^/youtube-api/': ''},
+  //     headers: {'X-API-KEY': process.env.YOUTUBE_KEY},
+  //     logLevel: 'debug'
+  //   }
+  // },
   /*
    ** Build configuration
    */
@@ -144,4 +141,4 @@ export default {
       }
     }
   }
-}
+};
