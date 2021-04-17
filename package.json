@@ -9,6 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "clear-cache": "rm -rf node_modules/.cache/hard-source/",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
@@ -34,6 +35,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-nuxt": ">=1.0.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "nuxt-vite": "0.0.36"
   }
 }

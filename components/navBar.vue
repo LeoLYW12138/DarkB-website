@@ -16,7 +16,7 @@
       </div>
 
       <!-- middle box -->
-      <search-bar class="flex-grow" :is-open="openSearchBar"></search-bar>
+      <!-- <search-bar class="flex-grow" :is-open="openSearchBar"></search-bar> -->
 
       <!-- right box -->
       <ul class="h-12 inline-flex flex-row justify-between items-center">
@@ -100,27 +100,27 @@
 </template>
 
 <script>
-import navItem from '@/components/navItem.vue'
-import searchBar from '@/components/searchBar.vue'
+import navItem from '@/components/navItem.vue';
+// import searchBar from '@/components/searchBar.vue';
 export default {
   components: {
     'nav-item': navItem,
-    'search-bar': searchBar,
+    // 'search-bar': searchBar,
   },
   data() {
     return {
       openmenu: false,
       isDarkThemed: false,
       openSearchBar: false,
-    }
+    };
   },
   watch: {
     $route() {
-      this.openmenu = false
-      this.openSearchBar = false
+      this.openmenu = false;
+      this.openSearchBar = false;
     },
   },
-}
+};
 </script>
 
 <style>

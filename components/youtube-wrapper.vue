@@ -36,10 +36,5 @@ export default {
       required: true,
     },
   },
-  computed: {
-    src() {
-      return 'https://www.youtube-nocookie.com/embed/' + this.videoId;
-    },
-  },
 };
 </script>

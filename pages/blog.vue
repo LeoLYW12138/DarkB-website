@@ -18,13 +18,18 @@
         <path d="M0 0h24v24H0z" fill="none" />
       </svg>
     </div>
+    <search-bar />
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+import searchBar from '@/components/searchBar.vue';
+
+export default {
+  components: {
+    searchBar,
+  },
+};
 </script>
 
 <style scoped>

@@ -118,22 +118,21 @@
 import imgWithCredit from '@/components/img-with-credit.vue';
 export default {
   components: {
-    "img-with-credit": imgWithCredit,
+    'img-with-credit': imgWithCredit,
   },
-  head () {
+  head() {
     return {
       title: 'About Me',
       meta: [
         {
           hid: 'about',
           name: 'about',
-          content: 'Something about me'
-        }
-      ]
-    }
+          content: 'Something about me',
+        },
+      ],
+    };
   },
-
-}
+};
 </script>
 <style scoped>
 </style>
