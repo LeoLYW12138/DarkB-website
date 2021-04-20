@@ -24,8 +24,8 @@
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
               <use
-                xlink:href="~assets/icons/search.svg#search"
-                href="~assets/icons/search.svg#search"
+                xlink:href="~/assets/icons/search.svg#search"
+                href="~/assets/icons/search.svg#search"
               />
             </svg>
           </div>
@@ -34,8 +34,8 @@
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
               <use
-                xlink:href="~assets/icons/settings.svg#settings"
-                href="~assets/icons/settings.svg#settings"
+                xlink:href="~/assets/icons/settings.svg#settings"
+                href="~/assets/icons/settings.svg#settings"
               />
             </svg>
           </div>
@@ -44,16 +44,16 @@
           <div v-if="isDarkThemed" class="clickable">
             <svg height="24px" width="24px" class="icon">
               <use
-                xlink:href="~assets/icons/moon-light.svg#dark"
-                href="~assets/icons/moon-light.svg#dark"
+                xlink:href="~/assets/icons/moon-light.svg#dark"
+                href="~/assets/icons/moon-light.svg#dark"
               />
             </svg>
           </div>
           <div v-else class="clickable">
             <svg height="24px" width="24px" class="icon">
               <use
-                xlink:href="~assets/icons/brightness.svg#light"
-                href="~assets/icons/brightness.svg#light"
+                xlink:href="~/assets/icons/brightness.svg#light"
+                href="~/assets/icons/brightness.svg#light"
               />
             </svg>
           </div>
@@ -75,8 +75,8 @@
             @click="openmenu = !openmenu"
           >
             <use
-              xlink:href="~assets/icons/hamberger.svg#hamberger"
-              href="~assets/icons/hamberger.svg#hamberger"
+              xlink:href="~/assets/icons/hamberger.svg#hamberger"
+              href="~/assets/icons/hamberger.svg#hamberger"
             />
           </svg>
         </div>

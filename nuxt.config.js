@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  // ssr: false,
   /*
    ** Server host and port
    */
@@ -55,7 +55,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/tailwind.css', 'aos/dist/aos.css'],
+  css: ['aos/dist/aos.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -70,8 +70,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    'nuxt-vite',
+    'nuxt-windicss'
   ],
   /*
    ** Nuxt.js modules
@@ -79,8 +79,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/firebase',
-    'nuxt-purgecss'
+    '@nuxtjs/firebase'
   ],
 
   /*
@@ -102,27 +101,33 @@ export default {
       firestore: true
     }
   },
-
-  // purgeCSS: {
-  //   mode: 'postcss',
-  //   enabled: (process.env.NODE_ENV === 'production')
-  // },
+  windicss: {
+    scan: {
+      dirs: ['./'],
+      exclude: [
+        'node_modules',
+        '.git',
+        '.github',
+        '.nuxt/**/*',
+        '*.template.html',
+        'app.html'
+      ]
+    },
+    transformCSS: 'pre',
+    preflight: {
+      alias: {
+        // add nuxt aliases
+        'nuxt-link': 'a'
+        // @nuxt/image module
+        // 'nuxt-img': 'img',
+      }
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  // axios: {
-  //   prefix: "/youtube-api/",
-  //   proxy: true,
-  // },
-  // proxy: {
-  //   "/youtube-api": {
-  //     target: "https://www.googleapis.com/youtube/v3/search",
-  //     pathRewrite: {'^/youtube-api/': ''},
-  //     headers: {'X-API-KEY': process.env.YOUTUBE_KEY},
-  //     logLevel: 'debug'
-  //   }
-  // },
+  // axios: {},
   /*
    ** Build configuration
    */
@@ -132,13 +137,6 @@ export default {
      */
     parallel: true,
     hardSource: true,
-    cache: true,
-    extend(config, ctx) {},
-    postcss: {
-      plugins: {
-        'postcss-import': {},
-        tailwindcss: 'tailwind.config.js'
-      }
-    }
+    cache: true
   }
 };

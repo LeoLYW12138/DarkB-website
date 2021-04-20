@@ -26,19 +26,19 @@
         </div>
       </div>
       <div class="blur-edge hidden xl:block">
-        <!-- <img class="hidden" src="~assets/images/computer-hero.jpg" alt="Hero image" /> -->
+        <!-- <img class="hidden" src="~/assets/images/computer-hero.jpg" alt="Hero image" /> -->
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>
 .blur-edge {
-  background-image: url('~assets/images/computer-hero.jpg');
+  background-image: url('~/assets/images/computer-hero.jpg');
   width: 640px;
   height: 426px;
   box-shadow: 0 0 8px 8px whitesmoke inset;

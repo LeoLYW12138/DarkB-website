@@ -6,7 +6,7 @@
       <div class="mx-1">
         <nuxtLink to="/">
           <img
-            src="~assets/images/DarkB_logo.png"
+            src="~/assets/images/DarkB_logo.png"
             alt="DarkB.me"
             title="DarkB.me"
             width="200px"
@@ -25,8 +25,8 @@
         <svg width="30px" height="30px" class="ml-4">
           <use
             class="text-gray-300"
-            xlink:href="~assets/icons/earth.svg#earth"
-            href="~assets/icons/earth.svg#earth"
+            xlink:href="~/assets/icons/earth.svg#earth"
+            href="~/assets/icons/earth.svg#earth"
           />
         </svg>
         <div
@@ -67,8 +67,8 @@
         >
           <svg height="36px" width="36px">
             <use
-              xlink:href="~assets/icons/youtube.svg#youtube"
-              href="~assets/icons/youtube.svg#youtube"
+              xlink:href="~/assets/icons/youtube.svg#youtube"
+              href="~/assets/icons/youtube.svg#youtube"
             />
           </svg>
         </a>
@@ -80,24 +80,24 @@
         >
           <svg height="36px" width="36px">
             <use
-              xlink:href="~assets/icons/github.svg#github"
-              href="~assets/icons/github.svg#github"
+              xlink:href="~/assets/icons/github.svg#github"
+              href="~/assets/icons/github.svg#github"
             />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
             <use
-              xlink:href="~assets/icons/instagram.svg#instagram"
-              href="~assets/icons/instagram.svg#instagram"
+              xlink:href="~/assets/icons/instagram.svg#instagram"
+              href="~/assets/icons/instagram.svg#instagram"
             />
           </svg>
         </a>
         <a href class="text-gray-600 hover:text-gray-900 mx-2">
           <svg height="36px" width="36px">
             <use
-              xlink:href="~assets/icons/facebook.svg#facebook"
-              href="~assets/icons/facebook.svg#facebook"
+              xlink:href="~/assets/icons/facebook.svg#facebook"
+              href="~/assets/icons/facebook.svg#facebook"
             />
           </svg>
         </a>
@@ -107,7 +107,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>

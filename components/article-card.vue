@@ -20,8 +20,8 @@
         Learn More
         <svg width="18px" height="18px" class="ml-2">
           <use
-            x-link:href="~assets/icons/arrow_right.svg#arrowR"
-            href="~assets/icons/arrow_right.svg#arrowR"
+            x-link:href="~/assets/icons/arrow_right.svg#arrowR"
+            href="~/assets/icons/arrow_right.svg#arrowR"
           />
         </svg>
       </nuxt-link>
@@ -37,8 +37,8 @@
       >
         <svg height="18px" width="18px" class="mt-1 mr-1">
           <use
-            xlink:href="~assets/icons/eye.svg#eye"
-            href="~assets/icons/eye.svg#eye"
+            xlink:href="~/assets/icons/eye.svg#eye"
+            href="~/assets/icons/eye.svg#eye"
           />
         </svg>
         {{ article.view }}
@@ -50,8 +50,8 @@
       >
         <svg height="18px" width="18px" class="mt-1 mr-1">
           <use
-            xlink:href="~assets/icons/comment.svg#comment"
-            href="~assets/icons/comment.svg#comment"
+            xlink:href="~/assets/icons/comment.svg#comment"
+            href="~/assets/icons/comment.svg#comment"
           />
         </svg>
         {{ article.cmCount }}
@@ -72,7 +72,7 @@ export default {
       default: '',
     },
   },
-}
+};
 </script>
 
 <style>

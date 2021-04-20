@@ -34,8 +34,8 @@
         Subscribe!
         <svg width="48px" height="48px">
           <use
-            xlink:href="~assets/icons/play_arrow.svg#play-arrow"
-            href="~assets/icons/play_arrow.svg#play-arrow"
+            xlink:href="~/assets/icons/play_arrow.svg#play-arrow"
+            href="~/assets/icons/play_arrow.svg#play-arrow"
           />
         </svg>
       </a>

@@ -9,12 +9,12 @@
     </p>
     <div v-else>
       <client-only>
-        <youtube
+        <Youtube
           class="absolute inset-0 w-full h-full"
           :video-id="videoId"
           allow="encrypted-media; gyroscope; picture-in-picture"
           nocookie
-        ></youtube>
+        ></Youtube>
       </client-only>
     </div>
   </div>

@@ -14,7 +14,7 @@
           class="mx-auto relative"
           width="48px"
           height="48px"
-          src="~assets/icons/expand_more.svg"
+          src="~/assets/icons/expand_more.svg"
           alt="Scroll Down to See More!"
           title="Scroll Down to See More!"
         />
@@ -31,9 +31,9 @@
 
 <script>
 // import axios from 'axios'
-import hero from '@/components/hero.vue'
-import blogPosters from '@/components/blog-posters.vue'
-import latestVideo from '@/components/latestVideo.vue'
+import hero from '@/components/hero.vue';
+import blogPosters from '@/components/blog-posters.vue';
+import latestVideo from '@/components/latestVideo.vue';
 
 export default {
   components: {
@@ -41,7 +41,7 @@ export default {
     'blog-posters': blogPosters,
     'latest-video': latestVideo,
   },
-}
+};
 </script>
 
 <style>

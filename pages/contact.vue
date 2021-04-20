@@ -37,16 +37,16 @@
         <social text="Coming Soon" disabled>
           <svg class="mx-auto w-16 lg:w-32">
             <use
-              xlink:href="~assets/icons/instagram.svg#instagram"
-              href="~assets/icons/instagram.svg#instagram"
+              xlink:href="~/assets/icons/instagram.svg#instagram"
+              href="~/assets/icons/instagram.svg#instagram"
             ></use>
           </svg>
         </social>
         <social text="Coming soon" disabled>
           <svg class="mx-auto w-16 lg:w-32">
             <use
-              xlink:href="~assets/icons/twitter.svg#twitter"
-              href="~assets/icons/twitter.svg#twitter"
+              xlink:href="~/assets/icons/twitter.svg#twitter"
+              href="~/assets/icons/twitter.svg#twitter"
             ></use>
           </svg>
         </social>
@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import cloud from '@/components/Cloud.vue'
-import social from '@/components/sociallinks.vue'
+import cloud from '@/components/Cloud.vue';
+import social from '@/components/sociallinks.vue';
 
 export default {
   components: {
@@ -115,85 +115,85 @@ export default {
       fontSizeMapper: (word) => Math.log2(word.value) * 5,
       rotate: () => (~~(Math.random() * 6) - 3) * 15,
       onWordHover: (word) => {
-        const tooltip = this.$refs.tooltip
+        const tooltip = this.$refs.tooltip;
         tooltip.innerHTML = `${word.text}<br>Popularity: ${
           (word.value - 1000) / 500 + 1
-        }`
-        tooltip.style.display = 'block'
+        }`;
+        tooltip.style.display = 'block';
 
         if (!this.listenerAdded) {
-          const cloudContainer = this.$refs['cloud-container']
+          const cloudContainer = this.$refs['cloud-container'];
 
           cloudContainer.addEventListener('mousemove', (e) => {
-            const bodyWidth = document.body.clientWidth
-            const bodyHeight = document.body.clientHeight
-            const containerX = cloudContainer.getClientRects()[0].left
-            const containerY = cloudContainer.getClientRects()[0].top
-            const tooltipWidth = tooltip.clientWidth
-            const tooltipHeight = tooltip.clientHeight
-            const offset = 10
+            const bodyWidth = document.body.clientWidth;
+            const bodyHeight = document.body.clientHeight;
+            const containerX = cloudContainer.getClientRects()[0].left;
+            const containerY = cloudContainer.getClientRects()[0].top;
+            const tooltipWidth = tooltip.clientWidth;
+            const tooltipHeight = tooltip.clientHeight;
+            const offset = 10;
 
             tooltip.style.left =
               e.pageX + tooltipWidth + offset < bodyWidth
                 ? e.clientX - containerX + offset + 'px'
-                : bodyWidth - offset / 2 - tooltipWidth - containerX + 'px'
+                : bodyWidth - offset / 2 - tooltipWidth - containerX + 'px';
             tooltip.style.top =
               e.pageY + tooltipHeight + offset < bodyHeight
                 ? e.clientY - containerY + offset + 'px'
-                : bodyHeight - offset / 2 - tooltipHeight - containerY + 'px'
-          })
+                : bodyHeight - offset / 2 - tooltipHeight - containerY + 'px';
+          });
 
           cloudContainer.addEventListener('mouseout', (e) => {
-            tooltip.style.display = 'none'
-          })
+            tooltip.style.display = 'none';
+          });
 
-          this.listenerAdded = true
+          this.listenerAdded = true;
         }
       },
-    }
+    };
   },
   mounted() {
-    const docRef = this.$fire.firestore.doc('word-cloud/comments')
+    const docRef = this.$fire.firestore.doc('word-cloud/comments');
     this.unsubscribe = docRef.onSnapshot((doc) => {
-      this.wordsFetched = true
-      this.words = doc.data().words
-    })
+      this.wordsFetched = true;
+      this.words = doc.data().words;
+    });
   },
   beforeDestroy() {
-    this.unsubscribe()
+    this.unsubscribe();
   },
   methods: {
     addWord() {
-      const text = this.inputword.split(' ', 1)[0]
+      const text = this.inputword.split(' ', 1)[0];
       if (text) {
-        const wordIdx = this.words.findIndex((word) => word.text === text)
+        const wordIdx = this.words.findIndex((word) => word.text === text);
         if (wordIdx > -1) {
-          this.words[wordIdx].value += 500
+          this.words[wordIdx].value += 500;
         } else {
-          this.words.push({ text, value: 1000 })
+          this.words.push({ text, value: 1000 });
         }
-        this.updateFirestore()
+        this.updateFirestore();
       }
     },
     displayWord() {
-      const word = this.inputword
+      const word = this.inputword;
       if (!word) {
-        return 'nothing'
+        return 'nothing';
       } else {
-        return `"${word.split(' ', 1)[0]}"`
+        return `"${word.split(' ', 1)[0]}"`;
       }
     },
     async updateFirestore() {
       try {
         await this.$fire.firestore
           .doc('word-cloud/comments')
-          .update({ words: this.words })
+          .update({ words: this.words });
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
