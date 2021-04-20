@@ -1,5 +1,4 @@
 export default {
-  mode: 'universal',
   /*
    ** Server host and port
    */
@@ -60,10 +59,7 @@ export default {
    ** Plugins to load before mounting the App
    */
   serverMiddleware: ['~/api/index'],
-  plugins: [
-    // { src: '~/plugins/vue-youtube.js', ssr: false },
-    { src: '@/plugins/aos.js', ssr: false }
-  ],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -80,6 +76,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/firebase',
+    '@nuxt/postcss8',
     'nuxt-purgecss'
   ],
 
@@ -102,27 +99,6 @@ export default {
       firestore: true
     }
   },
-
-  // purgeCSS: {
-  //   mode: 'postcss',
-  //   enabled: (process.env.NODE_ENV === 'production')
-  // },
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  // axios: {
-  //   prefix: "/youtube-api/",
-  //   proxy: true,
-  // },
-  // proxy: {
-  //   "/youtube-api": {
-  //     target: "https://www.googleapis.com/youtube/v3/search",
-  //     pathRewrite: {'^/youtube-api/': ''},
-  //     headers: {'X-API-KEY': process.env.YOUTUBE_KEY},
-  //     logLevel: 'debug'
-  //   }
-  // },
   /*
    ** Build configuration
    */

@@ -11,21 +11,23 @@ app.get('/latest-video', async (req, res) => {
   const API_KEY = process.env.YOUTUBE_KEY;
   const CHANNEL_ID = 'UClBq509EYyeMgN2wddN5v6g';
   const LIMIT = req.query.limit || 2;
-  const data = await axios
+  await axios
     .get(
       `${API_URL}?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&maxResults=${LIMIT}`
     )
     .then(res => {
       return res.data.items;
     })
+    .then(data => {
+      const videoIds = [];
+      data.map(item => {
+        videoIds.push(item.id.videoId);
+      });
+      res.json({ videoIds });
+    })
     .catch(err => {
       console.error(err);
     });
-  const videoIds = [];
-  data.map(item => {
-    videoIds.push(item.id.videoId);
-  });
-  res.json({ videoIds });
 });
 
 export default {

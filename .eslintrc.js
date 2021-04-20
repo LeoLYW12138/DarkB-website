@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     'nuxt/no-cjs-in-config': 'off',
     'space-before-function-paren': 'off',
-    'no-console': 'off'
-    // 'prettier/prettier': 'error'
+    'no-console': 'off',
+    'vue/comment-directive': 0
   }
-}
+};

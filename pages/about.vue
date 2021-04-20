@@ -116,10 +116,12 @@
 
 <script>
 import imgWithCredit from '@/components/img-with-credit.vue';
+import aosMixin from '~/mixins/aos';
 export default {
   components: {
     'img-with-credit': imgWithCredit,
   },
+  mixins: [aosMixin],
   head() {
     return {
       title: 'About Me',

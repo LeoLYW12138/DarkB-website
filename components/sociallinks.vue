@@ -36,7 +36,7 @@ p {
 }
 p::before {
   content: attr(data-content);
-  @apply absolute w-0 bottom-0 left-0 text-center text-blue-700 underline overflow-hidden whitespace-no-wrap;
+  @apply absolute w-0 bottom-0 left-0 text-center text-blue-700 underline overflow-hidden whitespace-nowrap;
   transition: width 300ms ease;
 }
 :not(.disabled) > a:hover p::before {

@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
+  mode: 'jit',
   prefix: '',
   important: false,
   separator: ':',
@@ -25,4 +26,4 @@ module.exports = {
     opacity: ['responsive', 'hover', 'focus', 'group-hover']
   },
   plugins: []
-}
+};
