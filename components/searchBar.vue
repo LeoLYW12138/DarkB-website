@@ -1,53 +1,49 @@
 <template>
-  <div>
-    <search-focus @keyup="focusSearch"></search-focus>
+  <div class="flex-row-center-center">
     <div
-      class="search-container absolute md:static md:block w-screen md:w-auto h-auto left-0 bg-gray-200 md:bg-transparent flex flex-grow"
-      :class="{hidden : !isOpen}"
+      class="flex-row-center-center w-full max-w-[30rem] rounded-lg m-4 shadow-md bg-gray-300 text-gray-400 focus-within:text-gray-600 focus-within:ring ring-green-400 ring-opacity-50"
     >
-      <div class="flex flex-grow">
-        <div class="relative mx-auto">
-          <div class="absolute inset-y-0 left-0 pl-2 pt-1 flex items-center">
-            <img class="fill-current text-gray-500" src="~/assets/icons/search.svg" alt="Search" />
-          </div>
-          <input
-            ref="search"
-            type="search"
-            placeholder="Search (press &quot;/&quot; to focus)"
-            class="bg-gray-100 border border-gray-500 rounded-full px-4 pl-10 py-1 outline-none focus:border-blue-500"
-          />
-        </div>
-      </div>
+      <svg width="24px" height="24px" class="my-auto ml-2">
+        <use class="fill-current" href="~assets/icons/search.svg#search"></use>
+      </svg>
+      <input
+        ref="search-input"
+        aria-label="Search"
+        autocomplete="on"
+        name="search-input"
+        placeholder="Search (press Ctrl+k to focus)"
+        speech
+        type="search"
+        class="flex-grow m-2 p-1 bg-gray-300 placeholder-gray-500 focus:outline-none"
+      />
     </div>
+    <search-focus @keydown="focusSearch"></search-focus>
   </div>
 </template>
 
 <script>
 import searchFocus from '@/components/searchFocus.vue';
-  export default {
-    components: {
-      'search-focus': searchFocus,
-    },
-    props: {
-      isOpen: {
-        type: Boolean,
-        default: false
-      },
-    },
-    methods: {
-      focusSearch(e) {
-        if (e.key === '/') {
-          this.$refs.search.focus();
-        }
+export default {
+  components: {
+    'search-focus': searchFocus,
+  },
+  methods: {
+    focusSearch(e) {
+      if (e.ctrlKey && e.key === 'k') {
+        e.preventDefault();
+        e.stopPropagation();
+        this.$refs['search-input'].focus();
+        return false;
+      } else if (e.key === 'Escape') {
+        this.$refs['search-input'].blur();
       }
     },
-  }
+  },
+};
 </script>
 
 <style scoped>
-.search-container {
-  top: 3rem;
-  z-index: 20;
-  flex-basis: 400px;
+.flex-row-center-center {
+  @apply flex flex-row justify-center content-center;
 }
 </style>

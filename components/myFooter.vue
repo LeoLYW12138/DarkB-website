@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-500">
+  <footer class="bg-gray-400">
     <div
       class="container mx-auto py-8 flex items-center justify-between flex-col md:flex-row flex-wrap"
     >
@@ -9,8 +9,7 @@
             src="~assets/images/DarkB_logo.png"
             alt="DarkB.me"
             title="DarkB.me"
-            width="200px"
-            height="auto"
+            class="w-[13rem] h-auto"
           />
         </nuxtLink>
       </div>
@@ -35,7 +34,7 @@
           <select
             id="language"
             name="lang"
-            class="block appearance-none w-full tertiary-font bg-gray-300 focus:bg-white px-4 py-2 pr-6 rounded border-none leading-tight focus:outline-none focus:shadow-outline"
+            class="tertiary-font leading-tight block w-full px-4 py-2 pr-6 rounded-md border-none focus:outline-none focus:shadow-outline bg-gray-300 focus:bg-white appearance-none"
           >
             <option value="en">English</option>
             <option value="zh-hk">中文(香港)</option>
@@ -105,10 +104,3 @@
     </div>
   </footer>
 </template>
-
-<script>
-export default {}
-</script>
-
-<style scoped>
-</style>

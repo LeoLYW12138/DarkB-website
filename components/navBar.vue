@@ -15,21 +15,8 @@
         <nav-item class="hidden lg:inline"></nav-item>
       </div>
 
-      <!-- middle box -->
-      <!-- <search-bar class="flex-grow" :is-open="openSearchBar"></search-bar> -->
-
       <!-- right box -->
       <ul class="h-12 inline-flex flex-row justify-between items-center">
-        <li class="block md:hidden" @click="openSearchBar = !openSearchBar">
-          <div class="clickable">
-            <svg height="24px" width="24px" class="icon">
-              <use
-                xlink:href="~assets/icons/search.svg#search"
-                href="~assets/icons/search.svg#search"
-              />
-            </svg>
-          </div>
-        </li>
         <li>
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
@@ -101,11 +88,9 @@
 
 <script>
 import navItem from '@/components/navItem.vue';
-// import searchBar from '@/components/searchBar.vue';
 export default {
   components: {
     'nav-item': navItem,
-    // 'search-bar': searchBar,
   },
   data() {
     return {
