@@ -58,7 +58,7 @@
         :class="{ loaded: wordsFetched }"
       >
         <cloud
-          class="mx-auto w-full h-auto"
+          class="h-auto mx-auto w-full"
           :data="words"
           font="Noto Sans HK"
           :font-size-mapper="fontSizeMapper"
@@ -68,7 +68,7 @@
         />
         <span
           ref="tooltip"
-          class="tooltip absolute whitespace-no-wrap hidden bg-yellow-400 opacity-75 border border-gray-600 shadow-md rounded-md p-2 z-10"
+          class="border rounded-md bg-yellow-400 border-gray-600 shadow-md opacity-75 p-2 z-10 tooltip absolute whitespace-no-wrap hidden"
         ></span>
       </div>
       <form
@@ -77,11 +77,11 @@
       >
         <input
           v-model.trim="inputword"
-          class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md"
+          class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md outline-none focus-within:ring ring-green-400 ring-opacity-50"
           type="search"
           placeholder="Add a word here"
         />
-        <button class="btn btn-darkGreen max-w-xs" type="submit">
+        <button class="max-w-xs btn btn-darkGreen" type="submit">
           Add {{ displayWord() }}
         </button>
       </form>

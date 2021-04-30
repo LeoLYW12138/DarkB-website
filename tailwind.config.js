@@ -9,7 +9,6 @@ module.exports = {
   prefix: '',
   important: false,
   separator: ':',
-  purge: ['./src/**/*.html', './src/**/*.vue'],
   theme: {
     borderRadius: {
       none: '0',
@@ -19,11 +18,6 @@ module.exports = {
       xl: '1.2rem',
       full: '9999px'
     }
-  },
-  variants: {
-    backgroundColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    display: ['responsive', 'hover', 'focus', 'group-hover'],
-    opacity: ['responsive', 'hover', 'focus', 'group-hover']
   },
   plugins: []
 };

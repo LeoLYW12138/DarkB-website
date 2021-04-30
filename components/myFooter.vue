@@ -3,13 +3,13 @@
     <div
       class="container mx-auto py-8 flex items-center justify-between flex-col md:flex-row flex-wrap"
     >
-      <div class="mx-1">
+      <div class="mx-1 ml-4">
         <nuxtLink to="/">
           <img
             src="~assets/images/DarkB_logo.png"
             alt="DarkB.me"
             title="DarkB.me"
-            class="w-[13rem] h-auto"
+            class="h-auto w-[13rem]"
           />
         </nuxtLink>
       </div>
@@ -29,7 +29,7 @@
           />
         </svg>
         <div
-          class="inline-block relative rounded-md bg-bray-600 ml-2 mr-6 my-1 p-1"
+          class="rounded-md bg-bray-600 my-1 mr-6 ml-2 p-1 inline-block relative"
         >
           <select
             id="language"
@@ -41,10 +41,10 @@
           </select>
 
           <div
-            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            class="flex px-2 inset-y-0 right-0 text-gray-700 pointer-events-none absolute items-center"
           >
             <svg
-              class="fill-current h-4 w-4"
+              class="h-4 fill-current w-4"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >

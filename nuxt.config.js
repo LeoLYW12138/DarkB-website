@@ -67,7 +67,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    'nuxt-windicss'
   ],
   /*
    ** Nuxt.js modules
@@ -75,9 +75,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/firebase',
-    '@nuxt/postcss8',
-    'nuxt-purgecss'
+    '@nuxtjs/firebase'
   ],
 
   /*
@@ -107,14 +105,7 @@ export default {
      ** You can extend webpack config here
      */
     parallel: true,
-    hardSource: true,
-    cache: true,
-    extend(config, ctx) {},
-    postcss: {
-      plugins: {
-        'postcss-import': {},
-        tailwindcss: 'tailwind.config.js'
-      }
-    }
+    // hardSource: true,
+    cache: true
   }
 };
