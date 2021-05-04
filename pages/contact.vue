@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import cloud from '@/components/Cloud.vue';
-import social from '@/components/sociallinks.vue';
+import cloud from '~/components/contact/Cloud.vue';
+import social from '~/components/contact/socialLink.vue';
 
 export default {
   components: {

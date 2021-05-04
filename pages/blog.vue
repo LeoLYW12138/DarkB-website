@@ -1,10 +1,12 @@
 <template>
-  <div class="container mx-auto grid grid-flow-col-dense grid-cols-12">
+  <div
+    class="container h-full mx-auto grid grid-flow-row lg:(grid-flow-col-dense grid-cols-12)"
+  >
     <leftSidebar
       :featured-blogs="featuredBlogs"
-      class="bg-pink-300 col-span-2"
+      class="bg-pink-300 col-span-3"
     ></leftSidebar>
-    <div class="bg-green-300 col-span-7">b</div>
+    <div class="bg-green-300 col-span-6">b</div>
     <rightSidebar :blog="blog" class="bg-blue-300 col-span-3"></rightSidebar>
   </div>
 </template>

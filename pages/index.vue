@@ -31,9 +31,9 @@
 
 <script>
 // import axios from 'axios'
-import hero from '@/components/hero.vue'
-import blogPosters from '@/components/blog-posters.vue'
-import latestVideo from '@/components/latestVideo.vue'
+import hero from '~/components/home/hero.vue';
+import blogPosters from '~/components/home/blogPoster.vue';
+import latestVideo from '~/components/home/latestVideo.vue';
 
 export default {
   components: {
@@ -41,7 +41,7 @@ export default {
     'blog-posters': blogPosters,
     'latest-video': latestVideo,
   },
-}
+};
 </script>
 
 <style>

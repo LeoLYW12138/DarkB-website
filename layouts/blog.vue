@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import navBar from '@/components/navBar.vue';
-import myFooter from '@/components/myFooter.vue';
-import searchBar from '@/components/searchBar.vue';
+import navBar from '~/components/layout/navBar.vue';
+import myFooter from '~/components/layout/myFooter.vue';
+import searchBar from '~/components/blog/searchBar.vue';
 export default {
   name: 'BlogLayout',
   components: {

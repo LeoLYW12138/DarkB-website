@@ -1,9 +1,9 @@
 <template>
   <div class="bg-white shadow-md">
     <!-- whole navBar start -->
-    <header class="navbar h-12 flex flex-row justify-between items-center">
+    <header class="flex flex-row h-12 navbar justify-between items-center">
       <!-- left box -->
-      <div class="inline-flex flex-row justify-between items-center">
+      <div class="flex-row inline-flex justify-between items-center">
         <nuxt-link to="/">
           <img
             id="logo"
@@ -16,7 +16,7 @@
       </div>
 
       <!-- right box -->
-      <ul class="h-12 inline-flex flex-row justify-between items-center">
+      <ul class="flex-row h-12 inline-flex justify-between items-center">
         <li>
           <div class="clickable">
             <svg height="24px" width="24px" class="icon">
@@ -49,8 +49,8 @@
         <!-- login and signup -->
         <li class="hidden lg:inline lg:mr-6">
           <a href="#">Login</a>
-          <p class="inline px-1">or</p>
-          <a href="#" class="px-3 py-1 rounded-full shadow btn-darkGreen"
+          <p class="px-1 inline">or</p>
+          <a href="#" class="rounded-full shadow py-1 px-3 btn-darkGreen"
             >Sign Up</a
           >
         </li>
@@ -78,7 +78,7 @@
     >
       <li>
         <a href="#" class="btn btn-darkGreen">Sign Up</a>
-        <p class="inline px-1">or</p>
+        <p class="px-1 inline">or</p>
         <a href="#">Login</a>
       </li>
       <nav-item class="navItem"></nav-item>
@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import navItem from '@/components/navItem.vue';
+import navItem from '@/components/layout/navItem.vue';
 export default {
   components: {
     'nav-item': navItem,

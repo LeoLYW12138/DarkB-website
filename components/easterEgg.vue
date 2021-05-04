@@ -44,13 +44,13 @@
 </template>
 
 <script>
-import reason from '@/components/secret-reason.vue'
+import reason from '~/components/secretReason.vue';
 
 export default {
   components: {
     reason,
   },
-}
+};
 </script>
 
 <style scoped>

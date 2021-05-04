@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import searchFocus from '@/components/searchFocus.vue';
+import searchFocus from '@/components/blog/searchFocus.vue';
 export default {
   components: {
     'search-focus': searchFocus,

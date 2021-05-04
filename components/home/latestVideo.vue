@@ -24,10 +24,10 @@
         />
       </div>
     </div>
-    <div class="inline-flex w-full justify-center">
+    <div class="w-full inline-flex justify-center">
       <a
         href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?view_as=subscriber"
-        class="btn play-button text-white tracking-wide inline-flex items-center"
+        class="text-white tracking-wide btn play-button inline-flex items-center"
         rel="noopener"
         target="_blank"
       >
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import youtubeWrapper from '@/components/youtube-wrapper.vue';
+import youtubeWrapper from '@/components/home/YouTubeWrapper.vue';
 export default {
   components: {
     'youtube-wrapper': youtubeWrapper,

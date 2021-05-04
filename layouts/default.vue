@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="flex flex-col min-h-screen">
     <nav-bar></nav-bar>
     <nuxt class="flex-grow" />
     <my-footer></my-footer>
@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import navBar from '@/components/navBar.vue'
-import myFooter from '@/components/myFooter.vue'
+import navBar from '~/components/layout/navBar.vue';
+import myFooter from '~/components/layout/myFooter.vue';
 export default {
   components: {
     'nav-bar': navBar,
     'my-footer': myFooter,
   },
-}
+};
 </script>
 <style>
 html {

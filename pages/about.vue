@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import imgWithCredit from '@/components/img-with-credit.vue';
+import imgWithCredit from '~/components/about/imgWithCredit.vue';
 import aosMixin from '~/mixins/aos';
 export default {
   components: {

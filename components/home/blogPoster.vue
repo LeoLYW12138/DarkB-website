@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container py-24 mx-auto">
+    <div class="container mx-auto py-24">
       <h1 class="text-4xl lg:text-6xl mb-16">Latest / Trending Posts</h1>
       <div class="flex flex-col lg:flex-row justify-center items-stretch -m-4">
         <div
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import card from '@/components/article-card.vue'
+import card from '~/components/blog/articleCard.vue';
 export default {
   components: {
     card,
@@ -49,9 +49,9 @@ export default {
           cmCount: 73,
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 
 <style>

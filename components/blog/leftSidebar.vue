@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4">
+  <aside class="px-4">
     <h1
       class="text-lg md:text-xl font-medium md:font-bold md:tracking-wider my-4"
     >
@@ -10,7 +10,7 @@
         {{ blog.title }}
       </li>
     </ul>
-  </div>
+  </aside>
 </template>
 
 <script>
