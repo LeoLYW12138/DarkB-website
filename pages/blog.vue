@@ -6,7 +6,11 @@
       :featured-blogs="featuredBlogs"
       class="bg-pink-300 col-span-3"
     ></leftSidebar>
-    <div class="bg-green-300 col-span-6">b</div>
+    <div class="bg-green-300 col-span-6">
+      <main v-for="article in trendArticles" :key="article.key">
+        <articleCard :article="article"></articleCard>
+      </main>
+    </div>
     <rightSidebar :blog="blog" class="bg-blue-300 col-span-3"></rightSidebar>
   </div>
 </template>
@@ -14,11 +18,13 @@
 <script>
 import leftSidebar from '@/components/blog/leftSidebar.vue';
 import rightSidebar from '@/components/blog/rightSidebar.vue';
+import articleCard from '@/components/blog/articleCard.vue';
 export default {
   layout: 'blog',
   components: {
     leftSidebar,
     rightSidebar,
+    articleCard,
   },
   data() {
     return {
@@ -37,6 +43,32 @@ export default {
           { title: 'Conclusion', content: 'conclusion' },
         ],
       },
+      trendArticles: [
+        {
+          id: 1,
+          cat: 'tech',
+          title: 'Hello DarkB',
+          less: 'Hello, My name is DarkB. Welcome back to another video',
+          view: 5,
+          cmCount: 3,
+        },
+        {
+          id: 2,
+          cat: 'life',
+          title: 'Hello DarkB Home',
+          less: 'Hello, My name is DarkB. Welcome to my room tour',
+          view: 29,
+          cmCount: 20,
+        },
+        {
+          id: 3,
+          cat: 'project',
+          title: 'New project update',
+          less: 'No way, I am so frustrated!',
+          view: 50,
+          cmCount: 73,
+        },
+      ],
     };
   },
 };
