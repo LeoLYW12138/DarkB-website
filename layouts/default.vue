@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <nav-bar></nav-bar>
+    <nav-bar class="z-50"></nav-bar>
     <nuxt class="flex-grow" />
     <my-footer></my-footer>
   </div>

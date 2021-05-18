@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="flex flex-col min-h-screen">
     <nav-bar></nav-bar>
     <search-bar></search-bar>
     <nuxt class="flex-grow"></nuxt>

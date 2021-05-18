@@ -1,7 +1,7 @@
 <template>
   <div class="my-4 lg:my-8 px-2 lg:px-4">
     <div class="container mx-auto">
-      <h4 data-aos="zoom-out" class="text-4xl mt-16 font-bold mb-12">
+      <h4 data-aos="zoom-out" class="font-bold mt-16 mb-12 text-4xl">
         Something about me...
       </h4>
       <img-with-credit
@@ -23,7 +23,7 @@
         >
       </img-with-credit>
       <div data-aos="fade-up-right" class="my-12">
-        <h6 class="text-2xl font-semibold">Who am I ?</h6>
+        <h6 class="font-semibold text-2xl">Who am I ?</h6>
         <div class="pl-5 lg:pl-10 my-6 leading-9">
           <p>Hello, welcome to my site! This is DarkB</p>
           <p>Well, currently I am a University student in Hong Kong</p>
@@ -48,7 +48,7 @@
         >
       </img-with-credit>
       <div data-aos="fade-up-left" class="my-12 float-right">
-        <h6 class="text-2xl font-semibold">Why this site ever exists ?</h6>
+        <h6 class="font-semibold text-2xl">Why this site ever exists ?</h6>
         <div class="pl-5 lg:pl-10 my-6 leading-9">
           <p>
             One day, I came across a Youtube video titled
@@ -90,7 +90,7 @@
         </span>
       </img-with-credit>
       <div data-aos="fade-up-right" class="my-12">
-        <h6 class="text-2xl font-semibold">What I like to do ?</h6>
+        <h6 class="font-semibold text-2xl">What I like to do ?</h6>
         <div class="pl-5 lg:pl-10 my-6 leading-9">
           <p>
             At home, I like to learn new things online, watch Youtube and write
@@ -102,14 +102,14 @@
           </p>
         </div>
       </div>
-      <h3
+
+      <div
         data-aos="flip-left"
         data-aos-easing="ease-out-cubic"
         data-aos-duration="2000"
-        class="mt-32 w-full text-center text-6xl fugaz"
       >
-        Enjoy!
-      </h3>
+        <h3 class="mt-32 text-center w-full text-6xl fugaz">Enjoy!</h3>
+      </div>
     </div>
   </div>
 </template>
