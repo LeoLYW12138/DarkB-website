@@ -1,21 +1,23 @@
 <template>
   <aside class="px-4">
-    <h1
-      class="text-lg md:text-xl font-medium md:font-bold md:tracking-wider my-4"
-    >
-      Content
-    </h1>
-    <ul>
-      <li
-        v-for="section in blog.sections"
-        :key="section.id"
-        class="cursor-pointer hover:(list-outside list-disc text-gray-700) text-gray-400 active:text-gray-700"
+    <div class="pl-4 top-5 bottom-5 sticky overflow-y-auto">
+      <h1
+        class="text-lg font-medium md:(text-xl font-bold tracking-wider) my-4"
       >
-        <a :href="'#' + titleShort(section)">
-          {{ section.title }}
-        </a>
-      </li>
-    </ul>
+        Content
+      </h1>
+      <ul class="list-outside">
+        <li
+          v-for="section in blog.sections"
+          :key="section.id"
+          class="cursor-pointer hover:(list-disc text-gray-700) text-gray-400 active:text-gray-700"
+        >
+          <a :href="'#' + titleShort(section)">
+            {{ section.title }}
+          </a>
+        </li>
+      </ul>
+    </div>
   </aside>
 </template>
 

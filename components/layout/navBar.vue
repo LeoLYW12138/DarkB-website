@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white shadow-md">
     <!-- whole navBar start -->
-    <header class="flex flex-row h-12 navbar justify-between items-center">
+    <nav class="flex flex-row h-12 navbar justify-between items-center">
       <!-- left box -->
       <div class="flex-row inline-flex justify-between items-center">
         <nuxt-link to="/">
@@ -68,7 +68,7 @@
           </svg>
         </div>
       </ul>
-    </header>
+    </nav>
     <!-- whole navBar end -->
 
     <!-- side-menu when sm and md screen -->

@@ -1,18 +1,18 @@
 <template>
   <div
-    class="h-full max-w-[1920px] lg:(grid grid-flow-col grid-cols-13) 2xl:mx-auto"
+    class="h-full max-w-[1920px] lg:(grid grid-flow-col) grid-cols-[20%,auto] 2xl:mx-auto"
     style="grid-template-rows: 100%"
   >
     <leftSidebar
       :featured-blogs="featuredBlogs"
-      class="bg-white shadow-md hidden lg:block col-span-2"
+      class="bg-white shadow-md hidden lg:block"
     ></leftSidebar>
-    <div class="col-span-11 col-start-3">
+    <div>
       <searchBar></searchBar>
 
       <!-- start of subgrid -->
       <div class="h-full md:(grid grid-flow-col grid-cols-11)">
-        <div class="px-4 pb-4 md:(px-8 pb-8) col-span-8">
+        <div class="px-4 pb-4 md:(px-8 pb-8) col-start-2 col-span-7">
           <blogSection
             v-for="section in blog.sections"
             :key="section.id"
