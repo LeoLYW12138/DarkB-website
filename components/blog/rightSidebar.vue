@@ -10,7 +10,7 @@
         <li
           v-for="section in blog.sections"
           :key="section.id"
-          class="cursor-pointer hover:(list-disc text-gray-700) text-gray-400 active:text-gray-700"
+          class="cursor-pointer hover:(list-disc text-gray-700) text-gray-400"
         >
           <a :href="'#' + titleShort(section)">
             {{ section.title }}
@@ -33,3 +33,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>

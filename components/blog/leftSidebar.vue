@@ -1,15 +1,13 @@
 <template>
   <aside class="px-4">
-    <h1
-      class="text-lg md:text-xl font-medium md:font-bold md:tracking-wider my-4"
-    >
+    <h1 class="text-lg md:(text-xl font-bold tracking-wider) my-4 font-medium">
       Featured blogs
     </h1>
     <ul class="text-gray-600">
       <li
         v-for="blog in blogs"
         :key="blog.id"
-        class="py-1 px-2 cursor-pointer hover:(rounded-md bg-emerald-100 bg-opacity-70 text-emerald-800) w-full"
+        class="cursor-pointer py-1 px-2 hover:(rounded-md bg-emerald-100 bg-opacity-70 text-emerald-800) w-full"
       >
         <a href="#">{{ blog.title }}</a>
       </li>
@@ -22,7 +20,7 @@ export default {
   props: {
     featuredBlogs: {
       type: Array,
-      default: () => {},
+      default: () => [],
     },
   },
   computed: {
@@ -32,3 +30,6 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+</style>
