@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full max-w-[1920px] lg:(grid grid-flow-col) grid-cols-[20%,auto] 2xl:mx-auto"
+    class="h-full max-w-[1920px] lg:(grid grid-flow-col) grid-cols-[20%,auto] 3xl:mx-auto"
     style="grid-template-rows: 100%"
   >
     <leftSidebar

@@ -17,6 +17,11 @@ module.exports = {
       lg: '1rem',
       xl: '1.2rem',
       full: '9999px'
+    },
+    extend: {
+      screens: {
+        '3xl': '1920px'
+      }
     }
   },
   plugins: []
