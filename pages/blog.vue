@@ -11,14 +11,14 @@
       <searchBar></searchBar>
 
       <div class="h-full md:(grid grid-flow-col grid-cols-11)">
-        <div class="px-4 pb-4 md:(px-8 pb-8) col-start-2 col-span-7">
+        <main class="px-4 pb-4 md:(px-8 pb-8) col-start-2 col-span-7">
           <blogSection
             v-for="section in blog.sections"
             :key="section.id"
             :section="section"
             class="my-6"
           ></blogSection>
-        </div>
+        </main>
         <rightSidebar
           :blog="blog"
           class="hidden md:block col-span-3"

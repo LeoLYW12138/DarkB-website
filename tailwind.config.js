@@ -1,9 +1,3 @@
-/*
- ** TailwindCSS Configuration File
- **
- ** Docs: https://tailwindcss.com/docs/configuration
- ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
- */
 module.exports = {
   mode: 'jit',
   prefix: '',
@@ -23,6 +17,9 @@ module.exports = {
         '3xl': '1920px'
       }
     }
+  },
+  shortcuts: {
+    'flex-row-center-center': 'flex flex-row justify-center content-center'
   },
   plugins: []
 };

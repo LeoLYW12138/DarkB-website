@@ -43,7 +43,4 @@ export default {
 </script>
 
 <style scoped>
-.flex-row-center-center {
-  @apply flex flex-row justify-center content-center;
-}
 </style>

@@ -1,25 +1,20 @@
 <template>
-  <section>
-    <div class="container mx-auto py-24">
-      <h1 class="text-4xl lg:text-6xl mb-16">Latest / Trending Posts</h1>
-      <div class="flex flex-col lg:flex-row justify-center items-stretch -m-4">
-        <div
-          v-for="article in trendArticles"
-          :key="article.id"
-          class="p-4 w-full lg:w-1/3"
-        >
-          <card :article="article" class="mx-auto bg-[#99f5ad] bg-opacity-87" />
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="container flex flex-col lg:flex-row">
+    <articleCard
+      v-for="article in trendArticles"
+      :key="article.id"
+      :article="article"
+      class="mx-auto bg-[#99f5ad] bg-opacity-87 m-4"
+    ></articleCard>
+  </div>
 </template>
 
 <script>
-import card from '~/components/blog/articleCard.vue';
+import articleCard from '@/components/blog/articleCard.vue';
+
 export default {
   components: {
-    card,
+    articleCard,
   },
   data() {
     return {
