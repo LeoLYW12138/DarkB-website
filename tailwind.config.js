@@ -21,5 +21,5 @@ module.exports = {
   shortcuts: {
     'flex-row-center-center': 'flex flex-row justify-center content-center'
   },
-  plugins: []
+  plugins: [require('windicss/plugin/typography')]
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="m-4 lg:m-8 text-gray-900">
+    <div class="m-4 text-gray-900 lg:m-8">
       <!-- hero -->
       <hero />
 
@@ -24,7 +24,7 @@
       <blog-posters></blog-posters>
 
       <!-- latest videos -->
-      <latest-video></latest-video>
+      <!-- <latest-video></latest-video> -->
     </div>
   </div>
 </template>
@@ -33,13 +33,13 @@
 // import axios from 'axios'
 import hero from '~/components/home/hero.vue';
 import blogPosters from '~/components/home/blogPoster.vue';
-import latestVideo from '~/components/home/latestVideo.vue';
+// import latestVideo from '~/components/home/latestVideo.vue';
 
 export default {
   components: {
     hero,
     'blog-posters': blogPosters,
-    'latest-video': latestVideo,
+    // 'latest-video': latestVideo,
   },
 };
 </script>

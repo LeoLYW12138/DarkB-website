@@ -1,6 +1,7 @@
 <template>
   <div
-    class="h-full max-w-[1920px] lg:(grid grid-flow-col) grid-cols-[20%,auto] grid-rows-[100%] 3xl:mx-auto"
+    class="h-full max-w-[1920px] grid-cols-[20%,auto] grid-rows-[100%] lg:(grid
+      grid-flow-col) 3xl:mx-auto"
   >
     <leftSidebar
       :featured-blogs="featuredBlogs"
@@ -11,17 +12,19 @@
       <searchBar></searchBar>
 
       <div class="h-full md:(grid grid-flow-col grid-cols-11)">
-        <main class="px-4 pb-4 md:(px-8 pb-8) col-start-2 col-span-7">
-          <blogSection
+        <main class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
+          <!-- <blogSection
             v-for="section in blog.sections"
             :key="section.id"
             :section="section"
             class="my-6"
-          ></blogSection>
+          ></blogSection> -->
+          <nuxt-content :document="article"></nuxt-content>
         </main>
+
         <rightSidebar
-          :blog="blog"
-          class="hidden md:block col-span-3"
+          :blog="article"
+          class="col-span-3 hidden md:block"
         ></rightSidebar>
       </div>
     </div>
@@ -30,16 +33,27 @@
 
 <script>
 import leftSidebar from '@/components/blog/leftSidebar.vue';
-import blogSection from '@/components/blog/blogSection.vue';
+// import blogSection from '@/components/blog/blogSection.vue';
 import rightSidebar from '@/components/blog/rightSidebar.vue';
 import searchBar from '@/components/blog/searchBar.vue';
 
 export default {
   components: {
     leftSidebar,
-    blogSection,
+    // blogSection,
     rightSidebar,
     searchBar,
+  },
+  async asyncData({ $content, params, error }) {
+    const [article] = await $content('/').fetch();
+
+    if (!article) {
+      return error({ statusCode: 404, message: 'Article not found' });
+    }
+
+    return {
+      article,
+    };
   },
   data() {
     return {
