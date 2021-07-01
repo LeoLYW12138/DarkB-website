@@ -1,11 +1,11 @@
 <template>
   <section class="container mx-auto w-full">
-    <h1 class="text-4xl lg:text-6xl mb-16">Check Out My Latest Video</h1>
+    <h1 class="mb-16 text-4xl lg:text-6xl">Check Out My Latest Video</h1>
     <div
-      class="mb-4 flex flex-wrap flex-col xl:flex-row items-center justify-between"
+      class="flex flex-wrap flex-col mb-4 xl:flex-row items-center justify-between"
     >
       <div class="sm-video-player">
-        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
+        <h3 class="text-center text-lg mb-1 tracking-wider md:text-2xl">
           Previous Video
         </h3>
         <youtube-wrapper
@@ -15,10 +15,10 @@
       </div>
 
       <div class="md-video-player">
-        <h3 class="text-center text-lg md:text-2xl tracking-wider mb-1">
+        <h3 class="text-center text-lg mb-1 tracking-wider md:text-2xl">
           Newborn Video
         </h3>
-        <youtube-wrapper
+        <youtubeWrapper
           :video-id="videoIds.curr || ''"
           :fetch-state="$fetchState"
         />
@@ -32,12 +32,7 @@
         target="_blank"
       >
         Subscribe!
-        <svg width="48px" height="48px">
-          <use
-            xlink:href="~assets/icons/play_arrow.svg#play-arrow"
-            href="~assets/icons/play_arrow.svg#play-arrow"
-          />
-        </svg>
+        <IconPlayArrow class="h-12 w-12"></IconPlayArrow>
       </a>
     </div>
   </section>
@@ -45,9 +40,12 @@
 
 <script>
 import youtubeWrapper from '@/components/home/YouTubeWrapper.vue';
+import IconPlayArrow from '@/assets/icons/play_arrow.svg?inline';
+
 export default {
   components: {
-    'youtube-wrapper': youtubeWrapper,
+    youtubeWrapper,
+    IconPlayArrow,
   },
   // activated() {
   //   if (this.$fetchState.timestamp <= Date.now() - 60 * 60 * 1000) {

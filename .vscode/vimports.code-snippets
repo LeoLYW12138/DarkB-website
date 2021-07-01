@@ -1,0 +1,33 @@
+{
+	// Place your DarkB workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Import SVG as Vue component": {
+		"scope": "javascript, typescript, vue",
+		"prefix": "vimport-svg",
+		"body": [
+			"import Icon${1:name} from '@/assets/icons/${1/(.*)/${1:/downcase}/}.svg?inline'",
+			"$0"
+		],
+		"description": "Import SVG"
+	},
+	"test": {
+		"prefix": "test",
+		// "body": "${1} -> ${1/(.*)/${1:/upcase}/} > ${1/(.*)/${1:/downcase}/}"
+		// simpler version below works too
+		"body": "${1:t} -> ${1/(.*)/${1:/upcase} ${1:/downcase}/}"
+	}
+}

@@ -10,7 +10,7 @@
     </h2>
 
     <!-- title -->
-    <h1 class="text-2xl md:text-3xl font-medium text-gray-900 mb-3 capitalize">
+    <h1 class="font-medium mb-3 text-2xl text-gray-900 capitalize md:text-3xl">
       {{ article.title }}
     </h1>
 
@@ -21,12 +21,7 @@
     <div class="text-center mb-16 w-full bottom-0 left-0 absolute">
       <nuxt-link to="/" class="text-indigo-700 inline-flex items-center">
         Learn More
-        <svg width="18px" height="18px" class="ml-2">
-          <use
-            x-link:href="~assets/icons/arrow_right.svg#arrowR"
-            href="~assets/icons/arrow_right.svg#arrowR"
-          />
-        </svg>
+        <IconArrowRight class="h-4.5 ml-2 w-4.5"></IconArrowRight>
       </nuxt-link>
     </div>
 
@@ -38,12 +33,7 @@
       <span
         class="border-r-2 border-gray-500 mr-3 text-sm leading-none py-1 pr-3 text-gray-600 inline-flex items-center"
       >
-        <svg class="h-5 mt-1 mr-1 w-5">
-          <use
-            xlink:href="~assets/icons/eye.svg#eye"
-            href="~assets/icons/eye.svg#eye"
-          />
-        </svg>
+        <IconEye class="h-5 mt-1 mr-1 w-5"></IconEye>
         {{ article.view }}
       </span>
 
@@ -51,12 +41,7 @@
       <span
         class="mr-3 text-sm leading-none text-gray-600 inline-flex items-center"
       >
-        <svg class="h-5 mt-1 mr-1 w-5">
-          <use
-            xlink:href="~assets/icons/comment.svg#comment"
-            href="~assets/icons/comment.svg#comment"
-          />
-        </svg>
+        <IconComment class="h-5 mt-1 mr-1 w-5"></IconComment>
         {{ article.cmCount }}
       </span>
     </section>
@@ -64,7 +49,16 @@
 </template>
 
 <script>
+import IconEye from '@/assets/icons/eye.svg?inline';
+import IconArrowRight from '@/assets/icons/arrow_right.svg?inline';
+import IconComment from '@/assets/icons/comment.svg?inline';
+
 export default {
+  components: {
+    IconEye,
+    IconArrowRight,
+    IconComment,
+  },
   props: {
     article: {
       type: Object,

@@ -1,11 +1,10 @@
 <template>
   <div class="flex-row-center-center">
     <div
-      class="flex-row-center-center w-full max-w-[30rem] rounded-lg m-4 shadow-md bg-gray-300 text-gray-400 focus-within:(text-gray-600 ring) ring-green-400 ring-opacity-50"
+      class="rounded-lg flex-row-center-center bg-gray-300 m-4 shadow-md w-full max-w-[30rem] ring-green-400 ring-opacity-50 text-gray-400 focus-within:(text-gray-600
+        ring)"
     >
-      <svg width="24px" height="24px" class="my-auto ml-2">
-        <use class="fill-current" href="~assets/icons/search.svg#search"></use>
-      </svg>
+      <IconSearch class="my-auto h-6 ml-2 w-6"></IconSearch>
       <input
         ref="search-input"
         aria-label="Search"
@@ -14,18 +13,21 @@
         placeholder="Search (press Ctrl+k to focus)"
         speech
         type="search"
-        class="flex-grow m-2 p-1 bg-gray-300 placeholder-gray-500 focus:outline-none"
+        class="flex-grow bg-gray-300 m-2 p-1 placeholder-gray-500 focus:outline-none"
       />
     </div>
-    <search-focus @keydown="focusSearch"></search-focus>
+    <searchFocus @keydown="focusSearch"></searchFocus>
   </div>
 </template>
 
 <script>
 import searchFocus from '@/components/blog/searchFocus.vue';
+import IconSearch from '@/assets/icons/search.svg?inline';
+
 export default {
   components: {
-    'search-focus': searchFocus,
+    searchFocus,
+    IconSearch,
   },
   methods: {
     focusSearch(e) {

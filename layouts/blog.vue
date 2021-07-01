@@ -1,8 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <nav-bar></nav-bar>
-    <search-bar></search-bar>
-    <nuxt class="flex-grow"></nuxt>
+    <nav-bar class="z-50"></nav-bar>
+    <nuxt class="flex-grow" />
     <my-footer></my-footer>
   </div>
 </template>
@@ -10,13 +9,10 @@
 <script>
 import navBar from '~/components/layout/navBar.vue';
 import myFooter from '~/components/layout/myFooter.vue';
-import searchBar from '~/components/blog/searchBar.vue';
 export default {
-  name: 'BlogLayout',
   components: {
     'nav-bar': navBar,
     'my-footer': myFooter,
-    'search-bar': searchBar,
   },
 };
 </script>
@@ -33,6 +29,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 *,
@@ -40,10 +37,6 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.fugaz {
-  font-family: 'Fugaz One', 'Noto Sans HK', Roboto, sans-serif;
 }
 
 .body-font {
@@ -60,5 +53,13 @@ html {
 }
 .tertiary-font {
   @apply text-xs;
+}
+
+.nuxt-content-highlight {
+  @apply relative;
+}
+
+.filename {
+  @apply absolute right-2 top-0 text-white text-opacity-40 font-mono;
 }
 </style>

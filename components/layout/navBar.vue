@@ -12,37 +12,22 @@
             title="Home Page"
           />
         </nuxt-link>
-        <nav-item class="hidden lg:inline"></nav-item>
+        <navItem class="hidden lg:inline"></navItem>
       </div>
 
       <!-- right box -->
       <ul class="flex-row h-12 inline-flex justify-between items-center">
         <li>
           <div class="clickable">
-            <svg height="24px" width="24px" class="icon">
-              <use
-                xlink:href="~assets/icons/settings.svg#settings"
-                href="~assets/icons/settings.svg#settings"
-              />
-            </svg>
+            <IconSettings class="h-6 w-6 icon"></IconSettings>
           </div>
         </li>
         <li @click="isDarkThemed = !isDarkThemed">
           <div v-if="isDarkThemed" class="clickable">
-            <svg height="24px" width="24px" class="icon">
-              <use
-                xlink:href="~assets/icons/moon-light.svg#dark"
-                href="~assets/icons/moon-light.svg#dark"
-              />
-            </svg>
+            <IconMoonLight class="h-6 w-6 icon"></IconMoonLight>
           </div>
           <div v-else class="clickable">
-            <svg height="24px" width="24px" class="icon">
-              <use
-                xlink:href="~assets/icons/brightness.svg#light"
-                href="~assets/icons/brightness.svg#light"
-              />
-            </svg>
+            <IconBrightness class="h-6 w-6 icon"></IconBrightness>
           </div>
         </li>
 
@@ -55,17 +40,10 @@
           >
         </li>
         <div class="px-2 block lg:hidden">
-          <svg
-            height="24px"
-            width="24px"
-            class="icon clickable"
+          <IconHamberger
+            class="h-6 w-6 icon clickable"
             @click="openmenu = !openmenu"
-          >
-            <use
-              xlink:href="~assets/icons/hamberger.svg#hamberger"
-              href="~assets/icons/hamberger.svg#hamberger"
-            />
-          </svg>
+          ></IconHamberger>
         </div>
       </ul>
     </nav>
@@ -74,23 +52,32 @@
     <!-- side-menu when sm and md screen -->
     <aside
       v-if="openmenu"
-      class="side-menu-container lg:hidden absolute right-0 bg-gray-400 flex flex-col justify-evenly items-center"
+      class="flex flex-col bg-gray-400 right-0 side-menu-container lg:hidden absolute justify-evenly items-center"
     >
       <li>
         <a href="#" class="btn btn-darkGreen">Sign Up</a>
         <p class="px-1 inline">or</p>
         <a href="#">Login</a>
       </li>
-      <nav-item class="navItem"></nav-item>
+      <navItem class="navItem"></navItem>
     </aside>
   </div>
 </template>
 
 <script>
 import navItem from '@/components/layout/navItem.vue';
+import IconSettings from '@/assets/icons/settings.svg?inline';
+import IconMoonLight from '@/assets/icons/moon-light.svg?inline';
+import IconBrightness from '@/assets/icons/brightness.svg?inline';
+import IconHamberger from '@/assets/icons/hamberger.svg?inline';
+
 export default {
   components: {
-    'nav-item': navItem,
+    navItem,
+    IconSettings,
+    IconMoonLight,
+    IconBrightness,
+    IconHamberger,
   },
   data() {
     return {
@@ -109,12 +96,6 @@ export default {
 </script>
 
 <style>
-* {
-  font-family: 'Noto Sans HK', Roboto, Arial, serif;
-  font-size: 16px;
-  font-weight: 500;
-}
-
 .navbar {
   box-shadow: 2px 3px rgba(105, 105, 105, 0.01);
 }

@@ -24,22 +24,21 @@
       <blog-posters></blog-posters>
 
       <!-- latest videos -->
-      <!-- <latest-video></latest-video> -->
+      <latest-video></latest-video>
     </div>
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
 import hero from '~/components/home/hero.vue';
 import blogPosters from '~/components/home/blogPoster.vue';
-// import latestVideo from '~/components/home/latestVideo.vue';
+import latestVideo from '~/components/home/latestVideo.vue';
 
 export default {
   components: {
     hero,
     'blog-posters': blogPosters,
-    // 'latest-video': latestVideo,
+    'latest-video': latestVideo,
   },
 };
 </script>

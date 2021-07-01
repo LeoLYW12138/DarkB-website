@@ -1,54 +1,28 @@
 <template>
-  <div class="my-4 lg:my-8 px-2 lg:px-4">
+  <div class="my-4 px-2 lg:my-8 lg:px-4">
     <div class="container mx-auto">
       <h4 class="header-font">Contact me at...</h4>
-      <div class="lg:px-4 flex md:flex-row flex-col justify-around">
+      <div class="flex flex-col md:flex-row justify-around lg:px-4">
         <social
           href="mailto:hello.dark.b@gmail.com?subject=A%20comment%20on%20your%20site"
           text="hello.dark.b@gmail.com"
         >
-          <svg class="mx-auto w-16 lg:w-32">
-            <use
-              xlink:href="~/assets/icons/gmail.svg#gmail"
-              href="~/assets/icons/gmail.svg#gmail"
-            ></use>
-          </svg>
+          <IconGmail class="mx-auto w-16 lg:w-32"></IconGmail>
         </social>
         <social href="https://github.com/LeoLYW12138" text="LeoLYW12138">
-          <svg class="mx-auto w-16 lg:w-32">
-            <use
-              xlink:href="~/assets/icons/github.svg#github"
-              href="~/assets/icons/github.svg#github"
-            ></use>
-          </svg>
+          <IconGithub class="mx-auto w-16 lg:w-32"></IconGithub>
         </social>
         <social
           href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?disable_polymer=true"
           text="DarkB Hello"
         >
-          <svg class="mx-auto w-16 lg:w-32">
-            <use
-              style="color: red"
-              xlink:href="~/assets/icons/youtube.svg#youtube"
-              href="~/assets/icons/youtube.svg#youtube"
-            ></use>
-          </svg>
+          <IconYoutube class="mx-auto text-[#F00] w-16 lg:w-32"></IconYoutube>
         </social>
         <social text="Coming Soon" disabled>
-          <svg class="mx-auto w-16 lg:w-32">
-            <use
-              xlink:href="~assets/icons/instagram.svg#instagram"
-              href="~assets/icons/instagram.svg#instagram"
-            ></use>
-          </svg>
+          <IconInstagram class="mx-auto w-16 lg:w-32"></IconInstagram>
         </social>
         <social text="Coming soon" disabled>
-          <svg class="mx-auto w-16 lg:w-32">
-            <use
-              xlink:href="~assets/icons/twitter.svg#twitter"
-              href="~assets/icons/twitter.svg#twitter"
-            ></use>
-          </svg>
+          <IconTwitter class="mx-auto w-16 lg:w-32"></IconTwitter>
         </social>
       </div>
       <h4 class="header-font">Or leave a word below</h4>
@@ -72,12 +46,12 @@
         ></span>
       </div>
       <form
-        class="w-full flex flex-col sm:flex-row justify-center items-center space-x-2"
+        class="flex flex-col space-x-2 w-full sm:flex-row justify-center items-center"
         @submit.prevent="addWord"
       >
         <input
           v-model.trim="inputword"
-          class="p-4 mb-3 md:mb-0 shadow rounded-lg flex-1 max-w-xs md:max-w-md outline-none focus-within:ring ring-green-400 ring-opacity-50"
+          class="rounded-lg max-w-xs outline-none flex-1 shadow mb-3 p-4 ring-green-400 ring-opacity-50 md:max-w-md focus-within:ring md:mb-0"
           type="search"
           placeholder="Add a word here"
         />
@@ -90,13 +64,23 @@
 </template>
 
 <script>
-import cloud from '~/components/contact/Cloud.vue';
-import social from '~/components/contact/socialLink.vue';
+import cloud from '@/components/contact/Cloud.vue';
+import social from '@/components/contact/socialLink.vue';
+import IconGmail from '@/assets/icons/gmail.svg?inline';
+import IconGithub from '@/assets/icons/github.svg?inline';
+import IconYoutube from '@/assets/icons/youtube.svg?inline';
+import IconInstagram from '@/assets/icons/instagram.svg?inline';
+import IconTwitter from '@/assets/icons/twitter.svg?inline';
 
 export default {
   components: {
     social,
     cloud,
+    IconGmail,
+    IconGithub,
+    IconYoutube,
+    IconInstagram,
+    IconTwitter,
   },
   data() {
     return {

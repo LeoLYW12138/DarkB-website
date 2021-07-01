@@ -66,8 +66,8 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    'nuxt-windicss'
+    'nuxt-windicss',
+    '@nuxtjs/svg'
   ],
   /*
    ** Nuxt.js modules
@@ -97,6 +97,14 @@ export default {
     services: {
       firestore: true
     }
+  },
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-coldark-dark.css'
+      }
+    },
+    liveEdit: false
   },
   /*
    ** Build configuration

@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
 const axios = require('axios');
+const cors = require('cors');
+
+app.use(
+  cors({
+    origin: ['http://leowong12138.tplinkdns.com', 'http://192.168.0.161:3000'],
+    credentials: true
+  })
+);
 
 app.get('/', (req, res) => {
   res.send('hello, world');

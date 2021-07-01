@@ -15,6 +15,7 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 *,

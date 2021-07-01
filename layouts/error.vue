@@ -17,7 +17,7 @@
       <p v-if="statusCode === 404" class="description">
         <a v-if="typeof $route === 'undefined'" class="error-link" href="/"></a>
         <NuxtLink v-else class="error-link" to="/"
-          >Back to the home page</NuxtLink
+          >Back to the <u>home page</u></NuxtLink
         >
       </p>
 

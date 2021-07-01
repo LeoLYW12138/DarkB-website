@@ -1,13 +1,10 @@
 ---
 title: Home page
-description: Learn how to usue @nuxt/content
+description: Learning how to use @nuxt/content
 ---
-
 Learning how to use @nuxt/content
-
 <!--more-->
-
-Here you can provide more detailes on the title
+Here you can provide more details on the title
 
 # H1
 
@@ -25,7 +22,7 @@ Here you can provide more detailes on the title
 
 ## codes
 
-```c
+```c [c]
 #include <stdio.h>
 
 int main(){
@@ -34,7 +31,7 @@ int main(){
 }
 ```
 
-```js[example.js]
+```js [js]
 const hello = 'Hello World!';
 
 name = prompt();

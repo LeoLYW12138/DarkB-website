@@ -13,39 +13,38 @@
 
       <div class="h-full md:(grid grid-flow-col grid-cols-11)">
         <main class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
-          <!-- <blogSection
-            v-for="section in blog.sections"
-            :key="section.id"
-            :section="section"
-            class="my-6"
-          ></blogSection> -->
-          <nuxt-content :document="article"></nuxt-content>
+          {{ article.codeblocks || '' }}
+          <nuxt-content
+            :document="article"
+            class="mx-auto prose prose-sm sm:prose"
+          ></nuxt-content>
         </main>
 
-        <rightSidebar
-          :blog="article"
+        <blogToc
+          :toc="article.toc"
           class="col-span-3 hidden md:block"
-        ></rightSidebar>
+        ></blogToc>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue';
 import leftSidebar from '@/components/blog/leftSidebar.vue';
-// import blogSection from '@/components/blog/blogSection.vue';
-import rightSidebar from '@/components/blog/rightSidebar.vue';
+import blogToc from '@/components/blog/blogToc.vue';
 import searchBar from '@/components/blog/searchBar.vue';
+import copyButton from '@/components/blog/copyButton.vue';
 
 export default {
+  layout: 'blog',
   components: {
     leftSidebar,
-    // blogSection,
-    rightSidebar,
+    blogToc,
     searchBar,
   },
   async asyncData({ $content, params, error }) {
-    const [article] = await $content('/').fetch();
+    const article = await $content('/home').fetch();
 
     if (!article) {
       return error({ statusCode: 404, message: 'Article not found' });
@@ -108,6 +107,16 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    setTimeout(() => {
+      const blocks = document.querySelectorAll('.nuxt-content-highlight');
+      for (const block of blocks) {
+        const CopyButton = Vue.extend(copyButton);
+        const component = new CopyButton().$mount();
+        block.appendChild(component.$el);
+      }
+    }, 100);
   },
 };
 </script>
