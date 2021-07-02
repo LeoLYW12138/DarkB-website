@@ -1,11 +1,7 @@
 <template>
-  <div
-    class="rounded-lg h-full max-w-md shadow-md text-center px-8 pt-12 pb-40 relative"
-  >
+  <div class="rounded-lg h-full max-w-md shadow-md text-center px-8 pt-12 pb-40 relative">
     <!-- categroy -->
-    <h2
-      class="font-medium text-center text-base tracking-widest text-gray-700 uppercase"
-    >
+    <h2 class="font-medium text-center text-base tracking-widest text-gray-700 uppercase">
       {{ article.cat }}
     </h2>
 
@@ -21,7 +17,7 @@
     <div class="text-center mb-16 w-full bottom-0 left-0 absolute">
       <nuxt-link to="/" class="text-indigo-700 inline-flex items-center">
         Learn More
-        <IconArrowRight class="h-4.5 ml-2 w-4.5"></IconArrowRight>
+        <IconArrow class="h-4.5 ml-2 w-4.5"></IconArrow>
       </nuxt-link>
     </div>
 
@@ -31,16 +27,24 @@
     >
       <!-- view -->
       <span
-        class="border-r-2 border-gray-500 mr-3 text-sm leading-none py-1 pr-3 text-gray-600 inline-flex items-center"
+        class="
+          border-r-2 border-gray-500
+          mr-3
+          text-sm
+          leading-none
+          py-1
+          pr-3
+          text-gray-600
+          inline-flex
+          items-center
+        "
       >
         <IconEye class="h-5 mt-1 mr-1 w-5"></IconEye>
         {{ article.view }}
       </span>
 
       <!-- comment count -->
-      <span
-        class="mr-3 text-sm leading-none text-gray-600 inline-flex items-center"
-      >
+      <span class="mr-3 text-sm leading-none text-gray-600 inline-flex items-center">
         <IconComment class="h-5 mt-1 mr-1 w-5"></IconComment>
         {{ article.cmCount }}
       </span>
@@ -50,13 +54,13 @@
 
 <script>
 import IconEye from '@/assets/icons/eye.svg?inline';
-import IconArrowRight from '@/assets/icons/arrow_right.svg?inline';
+import IconArrow from '@/assets/icons/arrow.svg?inline';
 import IconComment from '@/assets/icons/comment.svg?inline';
 
 export default {
   components: {
     IconEye,
-    IconArrowRight,
+    IconArrow,
     IconComment,
   },
   props: {

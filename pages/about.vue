@@ -1,5 +1,5 @@
 <template>
-  <div class="my-4 lg:my-8 px-2 lg:px-4">
+  <div class="my-4 px-2 lg:my-8 lg:px-4">
     <div class="container mx-auto">
       <h4 data-aos="zoom-out" class="font-bold mt-16 mb-12 text-4xl">
         Something about me...
@@ -22,9 +22,9 @@
           ></span
         >
       </img-with-credit>
-      <div data-aos="fade-up-right" class="my-12">
+      <div data-aos="fade-up-right" class="my-12 lg:ml-10">
         <h6 class="font-semibold text-2xl">Who am I ?</h6>
-        <div class="pl-5 lg:pl-10 my-6 leading-9">
+        <div class="my-6 pl-5 leading-9 lg:pl-10">
           <p>Hello, welcome to my site! This is DarkB</p>
           <p>Well, currently I am a University student in Hong Kong</p>
         </div>
@@ -47,9 +47,9 @@
           ></span
         >
       </img-with-credit>
-      <div data-aos="fade-up-left" class="my-12 float-right">
+      <div data-aos="fade-up-left" class="my-12 float-right lg:mr-10">
         <h6 class="font-semibold text-2xl">Why this site ever exists ?</h6>
-        <div class="pl-5 lg:pl-10 my-6 leading-9">
+        <div class="my-6 pl-5 leading-9 lg:pl-10">
           <p>
             One day, I came across a Youtube video titled
             <span class="text-xl fugaz">"Vue JS Tutorial"</span>
@@ -58,7 +58,7 @@
           <p
             data-aos="zoom-in"
             data-aos-duration="2000"
-            class="text-2xl pl-8 lg:pl-16 py-4 font-bold fugaz"
+            class="font-bold py-4 pl-8 text-2xl fugaz lg:pl-16"
           >
             I'm gonna make my own website
           </p>
@@ -89,9 +89,9 @@
           >
         </span>
       </img-with-credit>
-      <div data-aos="fade-up-right" class="my-12">
+      <div data-aos="fade-up-right" class="my-12 lg:ml-10">
         <h6 class="font-semibold text-2xl">What I like to do ?</h6>
-        <div class="pl-5 lg:pl-10 my-6 leading-9">
+        <div class="my-6 pl-5 leading-9 lg:pl-10">
           <p>
             At home, I like to learn new things online, watch Youtube and write
             codes

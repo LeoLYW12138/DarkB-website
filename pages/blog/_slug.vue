@@ -1,32 +1,33 @@
 <template>
   <div
-    class="h-full max-w-[1920px] grid-cols-[20%,auto] grid-rows-[100%] lg:(grid
-      grid-flow-col) 3xl:mx-auto"
+    class="
+      h-full
+      max-w-[1920px]
+      lg:grid
+      grid-flow-col grid-cols-[20%,auto] grid-rows-[100%]
+      3xl:mx-auto
+    "
   >
-    <leftSidebar
-      :featured-blogs="featuredBlogs"
-      class="bg-white shadow-md hidden lg:block"
-    />
+    <leftSidebar :featured-blogs="featuredBlogs" class="bg-white shadow-md hidden lg:block" />
 
-    <div>
-      <searchBar></searchBar>
+    <main class="h-full md:grid grid-flow-col grid-rows-[auto,1fr,auto] grid-cols-11">
+      <searchBar class="col-start-2 col-span-7"></searchBar>
 
-      <div class="h-full md:(grid grid-flow-col grid-cols-11)">
-        <main class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
-          {{ article.codeblocks || '' }}
-          <nuxt-content
-            :document="article"
-            class="mx-auto prose prose-sm sm:prose"
-          ></nuxt-content>
-          <blogNextPrev :next="next" :prev="prev"></blogNextPrev>
-        </main>
+      <article class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
+        <nuxt-content :document="article" class="mx-auto prose prose-sm sm:prose"></nuxt-content>
+      </article>
 
-        <blogToc
-          :toc="article.toc"
-          class="col-span-3 hidden md:block"
-        ></blogToc>
-      </div>
-    </div>
+      <blogNextPrev
+        :next="next"
+        :prev="prev"
+        class="row-start-3 col-start-2 col-span-7"
+      ></blogNextPrev>
+
+      <blogToc
+        :toc="article.toc"
+        class="col-span-3 row-start-2 row-span-full hidden md:block"
+      ></blogToc>
+    </main>
   </div>
 </template>
 
