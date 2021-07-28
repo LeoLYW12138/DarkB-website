@@ -1,12 +1,15 @@
 <template>
   <div
-    class="h-full max-w-[1920px] grid-cols-[20%,auto] grid-rows-[100%] lg:(grid
-      grid-flow-col) 3xl:mx-auto"
+    class="
+      h-full
+      max-w-[1920px]
+      grid-cols-[20%,auto] grid-rows-[100%]
+      lg:(grid
+      grid-flow-col)
+      3xl:mx-auto
+    "
   >
-    <leftSidebar
-      :featured-blogs="featuredBlogs"
-      class="bg-white shadow-md hidden lg:block"
-    />
+    <blogFeatured :featured-blogs="featuredBlogs" class="bg-white shadow-md hidden lg:block" />
 
     <div>
       <searchBar></searchBar>
@@ -14,16 +17,10 @@
       <div class="h-full md:(grid grid-flow-col grid-cols-11)">
         <main class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
           {{ article.codeblocks || '' }}
-          <nuxt-content
-            :document="article"
-            class="mx-auto prose prose-sm sm:prose"
-          ></nuxt-content>
+          <nuxt-content :document="article" class="mx-auto prose prose-sm sm:prose"></nuxt-content>
         </main>
 
-        <blogToc
-          :toc="article.toc"
-          class="col-span-3 hidden md:block"
-        ></blogToc>
+        <blogToc :toc="article.toc" class="col-span-3 hidden md:block"></blogToc>
       </div>
     </div>
   </div>
@@ -31,7 +28,7 @@
 
 <script>
 import Vue from 'vue';
-import leftSidebar from '@/components/blog/leftSidebar.vue';
+import blogFeatured from '@/components/blog/blogFeatured.vue';
 import blogToc from '@/components/blog/blogToc.vue';
 import searchBar from '@/components/blog/searchBar.vue';
 import copyButton from '@/components/blog/copyButton.vue';
@@ -39,7 +36,7 @@ import copyButton from '@/components/blog/copyButton.vue';
 export default {
   layout: 'blog',
   components: {
-    leftSidebar,
+    blogFeatured,
     blogToc,
     searchBar,
   },

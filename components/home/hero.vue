@@ -1,15 +1,9 @@
 <template>
   <section class="container mx-auto w-full">
-    <div
-      class="flex flex-col xl:flex-row flex-wrap items-center justify-between"
-    >
+    <div class="flex flex-col xl:flex-row flex-wrap items-center justify-between">
       <div class="inline-block mb-12 xl:mb-0">
         <div class="hero relative">
-          <h1
-            class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400"
-          >
-            DarkB
-          </h1>
+          <h1 class="watermark pl-2 absolute left-0 text-opacity-25 text-gray-400">DarkB</h1>
           <h3>Hello, World!</h3>
           <h1 class="ml-8 text-black">I am DarkB</h1>
           <h2>An IT enthusiast</h2>
@@ -18,9 +12,7 @@
           <nuxt-link to="/about" class="btn btn-lightGreen text-base md:text-lg"
             >About me</nuxt-link
           >
-          <nuxt-link
-            to="/contact"
-            class="btn btn-lightGreen text-base md:text-lg"
+          <nuxt-link to="/contact" class="btn btn-lightGreen text-base md:text-lg"
             >Contact me</nuxt-link
           >
         </div>
@@ -33,7 +25,7 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
 
 <style scoped>

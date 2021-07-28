@@ -1,12 +1,20 @@
 <template>
   <footer class="bg-gray-400">
     <div
-      class="container flex flex-col flex-wrap mx-auto py-8 items-center justify-between md:flex-row"
+      class="
+        container
+        flex flex-col flex-wrap
+        mx-auto
+        py-8
+        items-center
+        justify-between
+        md:flex-row
+      "
     >
       <div class="mx-1 ml-4">
         <nuxtLink to="/">
           <img
-            src="~assets/images/DarkB_logo.png"
+            src="~assets/images/DarkB_logo.webp"
             alt="DarkB.me"
             title="DarkB.me"
             class="h-auto w-[13rem]"
@@ -18,24 +26,44 @@
         <p>&copy; 2020 darkb.me - all rights reserved</p>
       </div>
 
-      <div
-        class="rounded-xl flex-row bg-gray-700 mx-1 py-2 inline-flex items-center md:py-0"
-      >
+      <div class="rounded-xl flex-row bg-gray-700 mx-1 py-2 inline-flex items-center md:py-0">
         <IconEarth class="h-7.5 ml-4 text-gray-300 w-7.5"></IconEarth>
-        <div
-          class="rounded-md bg-bray-600 my-1 mr-6 ml-2 p-1 inline-block relative"
-        >
+        <div class="rounded-md bg-bray-600 my-1 mr-6 ml-2 p-1 inline-block relative">
           <select
             id="language"
             name="lang"
-            class="border-none rounded-md bg-gray-300 leading-tight w-full py-2 px-4 pr-6 tertiary-font block focus:outline-none focus:shadow-outline focus:bg-white appearance-none"
+            class="
+              border-none
+              rounded-md
+              bg-gray-300
+              leading-tight
+              w-full
+              py-2
+              px-4
+              pr-6
+              tertiary-font
+              block
+              focus:outline-none
+              focus:shadow-outline
+              focus:bg-white
+              appearance-none
+            "
           >
             <option value="en">English</option>
             <option value="zh-hk">中文(香港)</option>
           </select>
 
           <div
-            class="flex px-2 inset-y-0 right-0 text-gray-700 pointer-events-none absolute items-center"
+            class="
+              flex
+              px-2
+              inset-y-0
+              right-0
+              text-gray-700
+              pointer-events-none
+              absolute
+              items-center
+            "
           >
             <svg
               class="h-4 fill-current w-4"
@@ -49,9 +77,7 @@
           </div>
         </div>
       </div>
-      <div
-        class="flex-row mx-1 py-2 inline-flex items-center justify-evenly md:py-0"
-      >
+      <div class="flex-row mx-1 py-2 inline-flex items-center justify-evenly md:py-0">
         <a
           href="https://www.youtube.com/channel/UClBq509EYyeMgN2wddN5v6g?disable_polymer=true"
           rel="noopener noreferrer"

@@ -1,6 +1,7 @@
 ---
 title: Home page
 description: Learning how to use @nuxt/content
+popularity: 100
 ---
 Learning how to use @nuxt/content
 <!--more-->

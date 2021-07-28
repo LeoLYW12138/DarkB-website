@@ -26,11 +26,7 @@
         </social>
       </div>
       <h4 class="header-font">Or leave a word below</h4>
-      <div
-        ref="cloud-container"
-        class="cloud-container"
-        :class="{ loaded: wordsFetched }"
-      >
+      <div ref="cloud-container" class="cloud-container" :class="{ loaded: wordsFetched }">
         <cloud
           class="h-auto mx-auto w-full"
           :data="words"
@@ -42,7 +38,20 @@
         />
         <span
           ref="tooltip"
-          class="border rounded-md bg-yellow-400 border-gray-600 shadow-md opacity-75 p-2 z-10 tooltip absolute whitespace-no-wrap hidden"
+          class="
+            border
+            rounded-md
+            bg-yellow-400
+            border-gray-600
+            shadow-md
+            opacity-75
+            p-2
+            z-10
+            tooltip
+            absolute
+            whitespace-no-wrap
+            hidden
+          "
         ></span>
       </div>
       <form
@@ -51,13 +60,23 @@
       >
         <input
           v-model.trim="inputword"
-          class="rounded-lg max-w-xs outline-none flex-1 shadow mb-3 p-4 ring-green-400 ring-opacity-50 md:max-w-md focus-within:ring md:mb-0"
+          class="
+            rounded-lg
+            max-w-xs
+            outline-none
+            flex-1
+            shadow
+            mb-3
+            p-4
+            ring-green-400 ring-opacity-50
+            md:max-w-md
+            focus-within:ring
+            md:mb-0
+          "
           type="search"
           placeholder="Add a word here"
         />
-        <button class="max-w-xs btn btn-darkGreen" type="submit">
-          Add {{ displayWord() }}
-        </button>
+        <button class="max-w-xs btn btn-darkGreen" type="submit">Add {{ displayWord() }}</button>
       </form>
     </div>
   </div>
@@ -96,15 +115,14 @@ export default {
         // { text: 'Comments', value: 1000 },
         // { text: 'Here', value: 1000 },
       ],
-      fontSizeMapper: (word) => Math.log2(word.value) * 5,
+      fontSizeMapper: (word) => Math.log(word.value) * 5,
       rotate: () => (~~(Math.random() * 6) - 3) * 15,
       onWordHover: (word) => {
         const tooltip = this.$refs.tooltip;
-        tooltip.innerHTML = `${word.text}<br>Popularity: ${
-          (word.value - 1000) / 500 + 1
-        }`;
-        tooltip.style.display = 'block';
-
+        tooltip.innerHTML = `
+        <p class="text-lg font-bold tracking-[0.0375em]">${word.text}</p>
+        <p class="text-sm">Popularity: ${(word.value - 1000) / 500 + 1}</p>
+        `;
         if (!this.listenerAdded) {
           const cloudContainer = this.$refs['cloud-container'];
 
@@ -133,6 +151,7 @@ export default {
 
           this.listenerAdded = true;
         }
+        tooltip.style.display = 'block';
       },
     };
   },
@@ -169,9 +188,7 @@ export default {
     },
     async updateFirestore() {
       try {
-        await this.$fire.firestore
-          .doc('word-cloud/comments')
-          .update({ words: this.words });
+        await this.$fire.firestore.doc('word-cloud/comments').update({ words: this.words });
       } catch (e) {
         console.error(e);
       }

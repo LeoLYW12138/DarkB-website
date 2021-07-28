@@ -1,10 +1,8 @@
 <template>
-  <aside class="px-4">
-    <div class="pb-4 pl-4 top-5 bottom-5 sticky overflow-y-auto">
-      <h1
-        class="font-medium my-4 text-lg md:(text-xl font-bold tracking-wider)"
-      >
-        Content
+  <aside class="px-4 -ml-3">
+    <div class="pb-4 pl-6 top-5 bottom-5 sticky overflow-y-auto bg-white rounded-md shadow-lg">
+      <h1 class="font-medium my-4 text-lg md:(text-xl font-bold tracking-wider)">
+        <NuxtLink to="#">Content</NuxtLink>
       </h1>
       <ul v-if="toc" class="list-outside">
         <li

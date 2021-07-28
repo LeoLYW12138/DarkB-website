@@ -3,37 +3,31 @@
     class="
       h-full
       max-w-[1920px]
-      lg:grid
-      grid-flow-col grid-cols-[20%,auto] grid-rows-[100%]
+      md:grid
+      grid-flow-col
+      lg:grid-cols-[20%,auto,20%]
+      grid-rows-[100%] grid-cols-[auto,20%]
       3xl:mx-auto
     "
   >
-    <leftSidebar :featured-blogs="featuredBlogs" class="bg-white shadow-md hidden lg:block" />
+    <blogFeatured :featured-blogs="featured" class="bg-white shadow-md hidden lg:block" />
 
-    <main class="h-full md:grid grid-flow-col grid-rows-[auto,1fr,auto] grid-cols-11">
-      <searchBar class="col-start-2 col-span-7"></searchBar>
+    <main class="h-full flex flex-col justify-center content-between">
+      <searchBar></searchBar>
 
-      <article class="px-4 pb-4 col-start-2 col-span-7 md:(px-8 pb-8)">
+      <article class="px-4 pb-4 md:(px-8 pb-8) flex-grow">
         <nuxt-content :document="article" class="mx-auto prose prose-sm sm:prose"></nuxt-content>
       </article>
 
-      <blogNextPrev
-        :next="next"
-        :prev="prev"
-        class="row-start-3 col-start-2 col-span-7"
-      ></blogNextPrev>
-
-      <blogToc
-        :toc="article.toc"
-        class="col-span-3 row-start-2 row-span-full hidden md:block"
-      ></blogToc>
+      <blogNextPrev :next="next" :prev="prev"></blogNextPrev>
     </main>
+    <blogToc :toc="article.toc" class="hidden md:block mt-20"></blogToc>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import leftSidebar from '@/components/blog/leftSidebar.vue';
+import blogFeatured from '@/components/blog/blogFeatured.vue';
 import blogToc from '@/components/blog/blogToc.vue';
 import blogNextPrev from '@/components/blog/blogNextPrev.vue';
 import searchBar from '@/components/blog/searchBar.vue';
@@ -42,7 +36,7 @@ import copyButton from '@/components/blog/copyButton.vue';
 export default {
   layout: 'blog',
   components: {
-    leftSidebar,
+    blogFeatured,
     blogToc,
     blogNextPrev,
     searchBar,
@@ -54,16 +48,23 @@ export default {
     if (!article) {
       return error({ statusCode: 404, message: 'Article not found' });
     }
+
     const [prev, next] = await $content('blogs')
       .only(['title', 'slug'])
       .sortBy('createdAt', 'asc')
       .surround(article.slug)
       .fetch();
 
+    const featured = await $content('blogs')
+      .only(['title', 'slug'])
+      .sortBy('popularity', 'desc')
+      .fetch();
+
     return {
       article,
       prev,
       next,
+      featured,
     };
   },
   data() {

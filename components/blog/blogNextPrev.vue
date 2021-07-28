@@ -1,9 +1,10 @@
 <template>
-  <footer class="flex items-center px-2 py-5 font-medium text-base">
+  <footer class="flex items-center content-between px-2 py-5 font-medium text-base">
     <NuxtLink
       v-if="prev"
       class="
         mr-auto
+        ml-5
         flex
         justify-start
         items-center
@@ -23,6 +24,7 @@
       v-if="next"
       class="
         ml-auto
+        mr-5
         flex
         justify-end
         items-center

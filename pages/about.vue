@@ -1,11 +1,9 @@
 <template>
   <div class="my-4 px-2 lg:my-8 lg:px-4">
     <div class="container mx-auto">
-      <h4 data-aos="zoom-out" class="font-bold mt-16 mb-12 text-4xl">
-        Something about me...
-      </h4>
+      <h4 data-aos="zoom-out" class="font-bold mt-16 mb-12 text-4xl">Something about me...</h4>
       <img-with-credit
-        :src="require('~/assets/images/about1.jpg')"
+        :src="require('~/assets/images/about1.webp')"
         alt="Photo of a university"
         title="Photo of a university"
       >
@@ -30,7 +28,7 @@
         </div>
       </div>
       <img-with-credit
-        :src="require('~/assets/images/about2.jpg')"
+        :src="require('~/assets/images/about2.webp')"
         alt="Photo of a typewriter"
         title="Photo of a typewriter"
       >
@@ -72,7 +70,7 @@
       </div>
       <p class="clear-both"></p>
       <img-with-credit
-        :src="require('~/assets/images/about3.jpg')"
+        :src="require('~/assets/images/about3.webp')"
         alt="Photo of a man running"
         title="Photo of a man running"
       >
@@ -92,22 +90,12 @@
       <div data-aos="fade-up-right" class="my-12 lg:ml-10">
         <h6 class="font-semibold text-2xl">What I like to do ?</h6>
         <div class="my-6 pl-5 leading-9 lg:pl-10">
-          <p>
-            At home, I like to learn new things online, watch Youtube and write
-            codes
-          </p>
-          <p>
-            Outside, I like to feel the breeze while running, meet friends, and
-            relax
-          </p>
+          <p>At home, I like to learn new things online, watch Youtube and write codes</p>
+          <p>Outside, I like to feel the breeze while running, meet friends, and relax</p>
         </div>
       </div>
 
-      <div
-        data-aos="flip-left"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="2000"
-      >
+      <div data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <h3 class="mt-32 text-center w-full text-6xl fugaz">Enjoy!</h3>
       </div>
     </div>

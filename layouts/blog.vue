@@ -18,8 +18,8 @@ export default {
 </script>
 <style>
 html {
-  font-family: 'Noto Sans HK', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Noto Sans HK', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -61,5 +61,30 @@ html {
 
 .filename {
   @apply absolute right-2 top-0 text-white text-opacity-40 font-mono;
+}
+article code {
+  @apply bg-emerald-300 p-1 rounded-default font-mono;
+  scrollbar-width: thin;
+}
+
+article code::before,
+article code::after {
+  white-space: nowrap;
+  content: none !important;
+  clear: both;
+}
+
+article a {
+  @apply underline-transparent;
+  text-decoration-color: transparent !important;
+}
+
+article a.nuxt-link-active:hover {
+  @apply text-emerald-600 underline-current;
+  text-decoration-color: currentColor !important;
+}
+
+article a:not(.nuxt-link-active):hover {
+  text-decoration-color: currentColor !important;
 }
 </style>
