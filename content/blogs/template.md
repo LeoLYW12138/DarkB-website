@@ -84,3 +84,36 @@ To embed photos in the article, you may use either markdown builtin syntax or ht
 
 4. [![Image link to Nuxt Content with title](https://content.nuxtjs.org/logo-light.svg "Image link to Nuxt Content")](/)
 ```
+
+## Footnotes
+You may also embed footnotes in the article if you have references or additional information to refer to.
+
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+[^1]: This is the first footnote.
+
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+
+
+```md
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+
+[^1]: This is the first footnote.
+
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs with 4 spaces to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+
+```
+
+<nuxt-link to="#">Back to Top</nuxt-link>
