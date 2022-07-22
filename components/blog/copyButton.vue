@@ -1,19 +1,14 @@
 <template>
   <button ref="copy" class="right-2 bottom-2 absolute" :aria-label="state">
-    <IconCopied
-      v-if="state === 'copied'"
-      class="h-5 text-white text-opacity-80 w-5"
-    ></IconCopied>
-    <IconCopy
-      v-else
-      class="h-5 text-white text-opacity-40 w-5 hover:text-opacity-70"
-    ></IconCopy>
+    <IconCopied v-if="state === 'copied'" class="h-5 text-white text-opacity-80 w-5"></IconCopied>
+    <IconCopy v-else class="h-5 text-white text-opacity-40 w-5 hover:text-opacity-70"></IconCopy>
     <tooltip
       :text="state"
       class="bg-gray-400 text-sm text-black py-1 px-2 top-[125%] -left-5"
       :class="[state === 'copied' ? 'block' : 'hidden']"
       direction="top"
-    ></tooltip>
+    >
+    </tooltip>
   </button>
 </template>
 

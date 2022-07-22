@@ -1,24 +1,21 @@
 <template>
   <div
     class="
-      h-full
-      max-w-[1920px]
+      w-full
+      max-w-[2560px]
       md:grid
       grid-flow-col
       lg:grid-cols-[20%,auto,20%]
       grid-rows-[100%] grid-cols-[auto,20%]
-      3xl:mx-auto
+      mx-auto
     "
   >
-    <blogFeatured :featured-blogs="featured" class="bg-white shadow-md hidden lg:block" />
-
-    <main class="h-full flex flex-col justify-center content-between">
+    <blogFeatured :featured-blogs="featured" class="hidden lg:block"></blogFeatured>
+    <main class="h-full bg-white shadow-lg flex flex-col justify-center content-between">
       <searchBar></searchBar>
-
       <article class="px-4 pb-4 md:(px-8 pb-8) flex-grow">
         <nuxt-content :document="article" class="mx-auto prose prose-sm sm:prose"></nuxt-content>
       </article>
-
       <blogNextPrev :next="next" :prev="prev"></blogNextPrev>
     </main>
     <blogToc :toc="article.toc" class="hidden md:block mt-20"></blogToc>
@@ -27,19 +24,18 @@
 
 <script>
 import Vue from 'vue';
-import blogFeatured from '@/components/blog/blogFeatured.vue';
 import blogToc from '@/components/blog/blogToc.vue';
+import blogFeatured from '@/components/blog/blogFeatured.vue';
 import blogNextPrev from '@/components/blog/blogNextPrev.vue';
 import searchBar from '@/components/blog/searchBar.vue';
 import copyButton from '@/components/blog/copyButton.vue';
-
 export default {
   layout: 'blog',
   components: {
-    blogFeatured,
     blogToc,
-    blogNextPrev,
+    blogFeatured,
     searchBar,
+    blogNextPrev,
   },
   async asyncData({ $content, params, error }) {
     const path = params.slug ? `/blogs/${params.slug}` : '/home';
@@ -67,15 +63,6 @@ export default {
       featured,
     };
   },
-  data() {
-    return {
-      featuredBlogs: [
-        { id: 1, title: 'Happy' },
-        { id: 2, title: 'Hello World' },
-        { id: 3, title: 'Ways to keep code clean' },
-      ],
-    };
-  },
   mounted() {
     setTimeout(() => {
       const blocks = document.querySelectorAll('.nuxt-content-highlight');
@@ -84,33 +71,18 @@ export default {
         const component = new CopyButton().$mount();
         block.appendChild(component.$el);
       }
-    }, 100);
-  },
-  methods: {
-    copyToClipboard(article) {},
+    });
   },
   head() {
     return {
       title: this.article.title,
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
+        { hid: 'description', name: 'description', content: this.article.description },
         // Open Graph
         { hid: 'og:title', property: 'og:title', content: this.article.title },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content: this.article.description,
-        },
+        { hid: 'og:description', property: 'og:description', content: this.article.description },
         // Twitter Card
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: this.article.title,
-        },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.article.title },
         {
           hid: 'twitter:description',
           name: 'twitter:description',

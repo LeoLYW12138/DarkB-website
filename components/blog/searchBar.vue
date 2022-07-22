@@ -19,7 +19,7 @@
       <IconSearch class="my-auto h-6 ml-2 w-6"></IconSearch>
       <input
         ref="search-input"
-        v-model="query"
+        v-model.trim="query"
         aria-label="Search"
         autocomplete="on"
         name="search-input"
@@ -27,6 +27,8 @@
         speech
         type="search"
         class="flex-grow bg-gray-300 m-2 p-1 placeholder-gray-500 focus:outline-none"
+        tabindex="-1"
+        @focus="isFocused = true"
       />
       <ul
         v-if="articles.length"
@@ -41,7 +43,7 @@
           outline-dark-50
           rounded-t-none rounded-md
         "
-        :class="{ hidden: isFocused }"
+        :class="{ hidden: !isFocused }"
       >
         <li v-for="article of articles" :key="article.slug">
           <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">{{
@@ -76,7 +78,6 @@ export default {
         this.articles = [];
         return;
       }
-
       this.articles = await this.$content('blogs')
         .only(['title', 'slug'])
         .sortBy('createdAt', 'asc')
@@ -91,11 +92,10 @@ export default {
         e.preventDefault();
         e.stopPropagation();
         this.$refs['search-input'].focus();
-        this.isFocused = true;
         return false;
       } else if (e.key === 'Escape') {
+        e.preventDefault();
         this.$refs['search-input'].blur();
-        this.isFocused = false;
       }
     },
   },

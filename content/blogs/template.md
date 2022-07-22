@@ -67,7 +67,7 @@ It is possible to create different types of internal and external links in the m
 ## Images
 To embed photos in the article, you may use either markdown builtin syntax or html `<img>` tag
 
-1. ![A logo of Nuxt Content](https://content.nuxtjs.org/logo-light.svg)
+1. ![A logo of Nuxt Content]()
 
 2. ![A logo of Nuxt Content with title](https://content.nuxtjs.org/logo-light.svg "A logo of Nuxt Content")
 
